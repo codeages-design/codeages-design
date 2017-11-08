@@ -63,9 +63,7 @@ var config = {
   },
   plugins: [
     new ExtractTextPlugin({
-      filename: function(getPath) {
-        return getPath('[name].css').replace('js', '');
-      },
+      filename: '[name].css',
       allChunks: true
     }),
   ]

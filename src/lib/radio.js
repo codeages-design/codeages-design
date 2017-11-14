@@ -8,10 +8,10 @@ class Radio {
   }
 
   init() {
-    this.event();
+    this.events();
   }
 
-  event() {
+  events() {
     $(this.parent).on('click.cd.radio', this.el, event => this.clickHandle(event));
   }
 

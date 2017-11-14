@@ -10,10 +10,10 @@ class Table {
   }
 
   init() {
-    this.event();
+    this.events();
   }
 
-  event() {
+  events() {
     $(this.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterHandle(event));
     $(this.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortHandle(event));
   }

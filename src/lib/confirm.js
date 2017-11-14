@@ -19,7 +19,7 @@ class Confirm {
     let html = this.template();
     let $modal = $(html);
 
-    this.initEvent($modal);
+    this.events($modal);
 
     $('body').append($modal);
     $modal.modal({
@@ -29,7 +29,7 @@ class Confirm {
     });
   }
 
-  initEvent($modal) {
+  events($modal) {
     $modal.on('hidden.bs.modal', () => {
       $modal.remove();
     });

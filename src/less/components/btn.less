@@ -1,12 +1,24 @@
 @import './btn-base.less';
 
-.btn.cd-btn {
+.cd-btn {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-appearance: button;
   font-size: 14px;
   font-weight: 500;
   padding: 9px 12px;
   line-height: 1;
   border: 1px solid transparent;
   background: none;
+  border-radius: 4px;
   &.cd-btn-sm {
     font-size: 12px;
     padding: 7px 10px;
@@ -24,7 +36,7 @@
   }
 }
 
-.btn.cd-btn {
+.cd-btn {
   &.cd-btn-ghost-primary {
     .cd-btn-ghost(@brand-primary);
   }
@@ -42,7 +54,7 @@
   }
 }
 
-.btn.cd-btn {
+.cd-btn {
   &.cd-btn-flat-primary {
     .cd-btn-flat(@brand-primary);
   }
@@ -73,7 +85,7 @@
   }
 }
 
-.btn.cd-btn {
+.cd-btn {
   &.cd-btn-primary {
     .cd-btn-raised(@brand-primary);
   }

@@ -11,10 +11,10 @@ class Upload {
   }
 
   init() {
-    this.initEvent();
+    this.events();
   }
 
-  initEvent() {
+  events() {
     $(this.parent).on('change.cd.local-upload', this.el, event => this.uploadHandle(event));
   }
 

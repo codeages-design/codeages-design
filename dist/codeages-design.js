@@ -69,13 +69,19 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_radio__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_confirm__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_loading__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_upload__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_table__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__less_codeages_design_less__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__less_codeages_design_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__less_codeages_design_less__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_radio__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_confirm__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_loading__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_upload__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_table__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_alert__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less__);
+
+
+
 
 
 
@@ -85,17 +91,24 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 let codeAgesDisign = {
-  radio: __WEBPACK_IMPORTED_MODULE_0__lib_radio__["a" /* default */],
-  confirm: __WEBPACK_IMPORTED_MODULE_1__lib_confirm__["a" /* default */],
-  loading: __WEBPACK_IMPORTED_MODULE_2__lib_loading__["a" /* default */],
-  upload: __WEBPACK_IMPORTED_MODULE_3__lib_upload__["a" /* default */],
-  table: __WEBPACK_IMPORTED_MODULE_4__lib_table__["a" /* default */]
+  radio: __WEBPACK_IMPORTED_MODULE_1__lib_radio__["a" /* default */],
+  confirm: __WEBPACK_IMPORTED_MODULE_2__lib_confirm__["a" /* default */],
+  loading: __WEBPACK_IMPORTED_MODULE_3__lib_loading__["a" /* default */],
+  upload: __WEBPACK_IMPORTED_MODULE_4__lib_upload__["a" /* default */],
+  table: __WEBPACK_IMPORTED_MODULE_5__lib_table__["a" /* default */],
+  alert: __WEBPACK_IMPORTED_MODULE_6__lib_alert__["a" /* default */]
 };
 
 window.cd = codeAgesDisign;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = $;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -109,10 +122,10 @@ class Radio {
   }
 
   init() {
-    this.event();
+    this.events();
   }
 
-  event() {
+  events() {
     $(this.parent).on('click.cd.radio', this.el, event => this.clickHandle(event));
   }
 
@@ -151,7 +164,7 @@ $(document).on('click.cd.radio.data-api', '[data-toggle="cd-radio"]', function (
 /* harmony default export */ __webpack_exports__["a"] = (radio);
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -176,7 +189,7 @@ class Confirm {
     let html = this.template();
     let $modal = $(html);
 
-    this.initEvent($modal);
+    this.events($modal);
 
     $('body').append($modal);
     $modal.modal({
@@ -186,7 +199,7 @@ class Confirm {
     });
   }
 
-  initEvent($modal) {
+  events($modal) {
     $modal.on('hidden.bs.modal', () => {
       $modal.remove();
     });
@@ -267,7 +280,7 @@ function confirm(props) {
 /* harmony default export */ __webpack_exports__["a"] = (confirm);
 
 /***/ }),
-/* 3 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -284,7 +297,7 @@ let loading = ({ loadingClass } = { loadingClass: '' }) => {
 /* harmony default export */ __webpack_exports__["a"] = (loading);
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -301,10 +314,10 @@ class Upload {
   }
 
   init() {
-    this.initEvent();
+    this.events();
   }
 
-  initEvent() {
+  events() {
     $(this.parent).on('change.cd.local-upload', this.el, event => this.uploadHandle(event));
   }
 
@@ -446,7 +459,7 @@ function upload(props) {
 /* harmony default export */ __webpack_exports__["a"] = (upload);
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -462,10 +475,10 @@ class Table {
   }
 
   init() {
-    this.event();
+    this.events();
   }
 
-  event() {
+  events() {
     $(this.parent).on('click.cd.table.filter', this.filterEl, event => this.filterHandle(event));
     $(this.parent).on('click.cd.table.sort', this.sortEl, event => this.sortHandle(event));
   }
@@ -537,7 +550,63 @@ function table(props) {
 /* harmony default export */ __webpack_exports__["a"] = (table);
 
 /***/ }),
-/* 6 */
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+class Alert {
+  constructor(props) {
+    Object.assign(this, {
+      parent: document,
+      closeEl: '[data-toggle="cd-alert-close"]'
+    }, props);
+
+    this.init();
+  }
+
+  init() {
+    this.events();
+  }
+
+  events() {
+    $(this.parent).on('click.cd.alert.close', this.closeEl, event => this.closeHandle(event));
+  }
+
+  closeHandle(event) {
+    let $this = $(event.currentTarget);
+
+    $this.parent('.cd-alert').remove();
+
+    this.cb();
+  }
+
+  cb() {}
+}
+
+function alert(props) {
+  return new Alert(props);
+}
+
+// DATA-API
+$(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]', function (event) {
+  event.stopPropagation();
+  let $this = $(event.currentTarget);
+
+  $this.parent().remove();
+});
+
+// HOW TO USE 
+// cd.alert({
+//   closeEl: '[data-dismiss="cd-alert"]',
+//   cb() {
+//     console.log('这是回调函数')
+//   }
+// });
+
+/* harmony default export */ __webpack_exports__["a"] = (alert);
+
+/***/ }),
+/* 8 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

@@ -1,6 +1,6 @@
 {
   "name": "codeages-design",
-  "version": "0.1.0-beta1",
+  "version": "0.1.0-beta2",
   "description": "前端组件库",
   "main": "src/codeages-design.js",
   "scripts": {
@@ -21,7 +21,11 @@
     "url": "https://github.com/ketuzhong/codeages-design/issues"
   },
   "homepage": "https://github.com/ketuzhong/codeages-design#readme",
+
   "dependencies": {
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "css-loader": "^0.28.7",

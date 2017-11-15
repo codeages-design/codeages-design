@@ -10,6 +10,9 @@ var config = {
     filename: '[name].js',
     publicPath: '/',
   },
+  externals: {
+    jquery: '$',
+  },
   resolve: {
     extensions: ['*', '.js'],
   },

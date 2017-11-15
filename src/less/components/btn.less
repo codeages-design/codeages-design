@@ -52,24 +52,47 @@
   &.cd-btn-ghost-warning {
     .cd-btn-ghost(@brand-warning);
   }
+  &.cd-btn-ghost-default {
+    background: #fff;
+    border-color: rgba(0,0,0,0.16);
+    color: @cd-gray-dark;
+    .cd-transition;
+    &:hover,
+    &:focus {
+      .cd-box-shadow(6px);
+      .cd-transition;
+      background: rgba(red(#fff), green(#fff), blue(#fff), 0.1);
+    }
+    &:active {
+      background: @cd-bg;
+      .cd-transition;
+    }
+  }
 }
 
+// @todo 待废弃flat类型
 .cd-btn {
+  &.cd-btn-link-primary,
   &.cd-btn-flat-primary {
-    .cd-btn-flat(@brand-primary);
+    .cd-btn-link(@brand-primary);
   }
+  &.cd-btn-link-info,
   &.cd-btn-flat-info {
-    .cd-btn-flat(@brand-info);
+    .cd-btn-link(@brand-info);
   }
+  &.cd-btn-link-danger,
   &.cd-btn-flat-danger {
-    .cd-btn-flat(@brand-danger);
+    .cd-btn-link(@brand-danger);
   }
+  &.cd-btn-link-success,
   &.cd-btn-flat-success {
-    .cd-btn-flat(@brand-success);
+    .cd-btn-link(@brand-success);
   }
+  &.cd-btn-link-warning,
   &.cd-btn-flat-warning {
-    .cd-btn-flat(@brand-warning);
+    .cd-btn-link(@brand-warning);
   }
+  &.cd-btn-link-default,
   &.cd-btn-flat-default {
     color: @cd-gray-dark;
     .cd-transition;
@@ -102,18 +125,6 @@
     .cd-btn-raised(@brand-warning);
   }
   &.cd-btn-default {
-    background: #fff;
-    border-color: rgba(0,0,0,0.16);
-    color: @cd-gray-dark;
-    .cd-transition;
-    &:hover,
-    &:focus {
-      .cd-box-shadow(6px);
-      .cd-transition;
-    }
-    &:active {
-      background: @cd-bg;
-      .cd-transition;
-    }
+    .cd-btn-raised(#eee, @cd-gray-dark);
   }
 }

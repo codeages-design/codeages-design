@@ -4,8 +4,9 @@
   .cd-transition;
   &:hover,
   &:focus {
-    color: #fff;
-    background: @color;
+    // color: #fff;
+    // background: @color;
+    background: rgba(red(@color), green(@color), blue(@color), 0.1);
     .cd-transition;
     .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.30));
   }
@@ -16,7 +17,7 @@
   }
 }
 
-.cd-btn-flat(@color) {
+.cd-btn-link(@color) {
   color: @color;
   .cd-transition;
   &:hover,
@@ -30,8 +31,8 @@
   }
 }
 
-.cd-btn-raised(@color) {
-  color: #fff;
+.cd-btn-raised(@color, @textColor: #fff) {
+  color: @textColor;
   background: @color;
   border-color: @color;
   .cd-transition;

@@ -18,8 +18,12 @@ class Alert {
 
   closeHandle(event) {
     let $this = $(event.currentTarget);
-
-    $this.parent('.cd-alert').remove();
+    let $parent = $this.parent();
+    $parent.addClass('cd-alert-hide');
+    
+    setTimeout(() => {
+      $parent.remove();
+    }, 300);
 
     this.cb();
   }
@@ -37,8 +41,12 @@ function alert(props) {
 $(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]', function(event) {
   event.stopPropagation();
   let $this = $(event.currentTarget);
-
-  $this.parent().remove();
+  let $parent = $this.parent();
+  $parent.addClass('cd-alert-hide');
+  
+  setTimeout(() => {
+    $parent.remove();
+  }, 300);
 });
 
 // HOW TO USE 

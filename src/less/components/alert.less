@@ -5,6 +5,12 @@
   padding: 12px 16px;
   margin-bottom: 24px;
   font-weight: 500;
+  opacity: 1;
+  .cd-transition();
+  &.cd-alert-hide {
+    opacity: 0;
+    .cd-transition();
+  }
   &.cd-alert-warning {
     color: #ffa51f;
     background: #fff6e9;

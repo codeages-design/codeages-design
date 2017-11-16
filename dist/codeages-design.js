@@ -69,18 +69,14 @@
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_jquery___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_jquery__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_radio__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_confirm__ = __webpack_require__(3);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_loading__ = __webpack_require__(4);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_upload__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_table__ = __webpack_require__(6);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_alert__ = __webpack_require__(7);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7__less_codeages_design_less__);
-
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_radio__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_confirm__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_loading__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_upload__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_table__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_alert__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__less_codeages_design_less__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__less_codeages_design_less___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__less_codeages_design_less__);
 
 
 
@@ -91,24 +87,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 let codeAgesDisign = {
-  radio: __WEBPACK_IMPORTED_MODULE_1__lib_radio__["a" /* default */],
-  confirm: __WEBPACK_IMPORTED_MODULE_2__lib_confirm__["a" /* default */],
-  loading: __WEBPACK_IMPORTED_MODULE_3__lib_loading__["a" /* default */],
-  upload: __WEBPACK_IMPORTED_MODULE_4__lib_upload__["a" /* default */],
-  table: __WEBPACK_IMPORTED_MODULE_5__lib_table__["a" /* default */],
-  alert: __WEBPACK_IMPORTED_MODULE_6__lib_alert__["a" /* default */]
+  radio: __WEBPACK_IMPORTED_MODULE_0__lib_radio__["a" /* default */],
+  confirm: __WEBPACK_IMPORTED_MODULE_1__lib_confirm__["a" /* default */],
+  loading: __WEBPACK_IMPORTED_MODULE_2__lib_loading__["a" /* default */],
+  upload: __WEBPACK_IMPORTED_MODULE_3__lib_upload__["a" /* default */],
+  table: __WEBPACK_IMPORTED_MODULE_4__lib_table__["a" /* default */],
+  alert: __WEBPACK_IMPORTED_MODULE_5__lib_alert__["a" /* default */]
 };
 
 window.cd = codeAgesDisign;
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports) {
-
-module.exports = $;
-
-/***/ }),
-/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -164,7 +154,7 @@ $(document).on('click.cd.radio.data-api', '[data-toggle="cd-radio"]', function (
 /* harmony default export */ __webpack_exports__["a"] = (radio);
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,7 +270,7 @@ function confirm(props) {
 /* harmony default export */ __webpack_exports__["a"] = (confirm);
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -297,7 +287,7 @@ let loading = ({ loadingClass } = { loadingClass: '' }) => {
 /* harmony default export */ __webpack_exports__["a"] = (loading);
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -459,7 +449,7 @@ function upload(props) {
 /* harmony default export */ __webpack_exports__["a"] = (upload);
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -550,7 +540,7 @@ function table(props) {
 /* harmony default export */ __webpack_exports__["a"] = (table);
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -606,7 +596,7 @@ $(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]'
 /* harmony default export */ __webpack_exports__["a"] = (alert);
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

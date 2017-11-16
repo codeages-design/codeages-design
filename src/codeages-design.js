@@ -1,5 +1,3 @@
-import 'jquery';
-
 import radio from './lib/radio';
 import confirm from './lib/confirm';
 import loading from './lib/loading';

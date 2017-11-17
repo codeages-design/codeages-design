@@ -1,4 +1,4 @@
-.table-responsive.cd-table-responsive {
+.cd-table-responsive {
   margin-bottom: 24px;
   overflow-x: visible;
   min-height: auto;
@@ -13,8 +13,19 @@
   }
 }
 
-.table.cd-table {
+.cd-table {
+  width: 100%;
+  max-width: 100%;
   margin-bottom: 24px;
+  border-collapse: collapse;
+  border-spacing: 0;
+  td {
+    word-wrap: break-word;
+    word-break: break-all;
+  }
+  th {
+    text-align: left;
+  }
   > tbody > tr > td,
   > tbody > tr > th,
   > thead > tr > td,

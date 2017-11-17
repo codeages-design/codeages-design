@@ -44,13 +44,5 @@ $(document).on('click.cd.radio.data-api', '[data-toggle="cd-radio"]', function(e
 
 });
 
-// HOW TO USE 
-// cd.radio({
-//   el: '[data-toggle="cd-radio"]',
-//   cb() {
-//     console.log('这是回调函数')
-//   }
-// });
-
 export default radio;
 

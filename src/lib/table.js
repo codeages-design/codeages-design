@@ -78,10 +78,4 @@ function table(props) {
   return new Table(props);
 }
 
-// HOW TO USE
-// cd.table({
-//   cb($target, url) {
-//   }
-// })
-
 export default table;

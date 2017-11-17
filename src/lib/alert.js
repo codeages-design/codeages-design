@@ -2,7 +2,6 @@ class Alert {
   constructor(props) {
     Object.assign(this, {
       parent: document,
-      closeEl: '[data-toggle="cd-alert-close"]'
     }, props);
 
     this.init();
@@ -48,13 +47,5 @@ $(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]'
     $parent.remove();
   }, 300);
 });
-
-// HOW TO USE 
-// cd.alert({
-//   closeEl: '[data-dismiss="cd-alert"]',
-//   cb() {
-//     console.log('这是回调函数')
-//   }
-// });
 
 export default alert;

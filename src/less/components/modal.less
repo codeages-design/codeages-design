@@ -1,6 +1,58 @@
-.modal-dialog.cd-modal-dialog {
+.cd-modal {
+  display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  &.cd-fade {
+    .cd-modal-dialog {
+      webkit-transition: -webkit-transform .3s ease-out;
+      -o-transition: -o-transform .3s ease-out;
+      transition: transform .3s ease-out;
+      -webkit-transform: translate(0,-25%);
+      -ms-transform: translate(0,-25%);
+      -o-transform: translate(0,-25%);
+      transform: translate(0,-25%);
+    }
+  }
+  &.cd-in {
+    .cd-modal-dialog {
+      -webkit-transform: translate(0,0);
+      -ms-transform: translate(0,0);
+      -o-transform: translate(0,0);
+      transform: translate(0,0);
+    }
+  }
+}
+
+.cd-modal-open {
+  overflow: hidden;
+  .cd-modal {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
+
+.cd-fade {
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  -o-transition: opacity .15s linear;
+  transition: opacity .15s linear;
+  &.cd-in {
+    opacity: 1;
+  }
+}
+
+.cd-modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 10px;
   @media(min-width: @screen-sm-min) {
     width: 480px;
+    margin: 10% auto;
   }
   &.cd-modal-dialog-sm {
     @media(min-width: @screen-sm-min) {
@@ -18,6 +70,11 @@
   }
 
   .modal-content {
+    position: relative;
+    background-color: #fff;
+    border-radius: 4px;
+    background-clip: padding-box;
+    outline: 0;
     .cd-box-shadow(24px, 0.2, 0.3);
   }
 
@@ -37,6 +94,7 @@
   }
 
   .modal-title {
+    margin: 0px;
     line-height: 1;
     font-size: 16px;
     color: @cd-gray-dark;
@@ -44,14 +102,35 @@
   }
 
   .modal-body {
+    position: relative;
+    word-wrap: break-word;
+    overflow: hidden;
     padding: 24px 24px 0 24px;
+    font-size: 14px;
   }
 
   .modal-footer {
     border: none;
     padding: 8px 24px 24px 24px;
-    .btn + .btn {
+    text-align: right;
+    .cd-btn + .cd-btn {
       margin-left: 16px;
     }
+  }
+}
+
+.cd-modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+  &.cd-fade {
+    opacity: 0;
+  }
+  &.cd-in {
+    opacity: 0.8;
   }
 }

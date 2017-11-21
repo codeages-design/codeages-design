@@ -1,63 +1,56 @@
+const TRANSITION_DURATION = 300;
+const BACKDROP_TRANSITION_DURATION = 150;
+
 class Confirm {
   constructor(props) {
     Object.assign(this, {
       title: '',
       content: '',
-      confirmText: 'confirm',
-      cancelText: 'cancel',
-      confirmClass: 'btn cd-btn cd-btn-flat-danger cd-btn-lg',
-      cancelClass: 'btn cd-btn cd-btn-flat-default cd-btn-lg',
-      dialogClass: 'cd-modal-dialog cd-modal-dialog-sm',
-      confirmType: '',
-      confirmUrl: '',
+      confirmText: 'Confirm',
+      cancelText: 'Cancel',
+      confirmClass: 'cd-btn cd-btn-link-danger cd-btn-lg',
+      cancelClass: 'cd-btn cd-btn-link-default cd-btn-lg',
+      dialogClass: 'cd-modal-dialog-sm',
     }, props);
+
+    this.$backdrop =  null;
+    this.$body = $(document.body);
+    this.$modal = null;
 
     this.init();
   }
 
   init() {
+    this.addDrop();
+
     let html = this.template();
-    let $modal = $(html);
+    this.$modal = $(html);
+    this.$modal.appendTo(this.$body.addClass('cd-modal-open'));
 
-    this.events($modal);
+    setTimeout(() => {
+      this.$modal.addClass('cd-in');
+    }, TRANSITION_DURATION);
 
-    $('body').append($modal);
-    $modal.modal({
-      backdrop: 'static',
-      keyboard: false,
-      show: true
-    });
+    this.events();
   }
 
-  events($modal) {
-    $modal.on('hidden.bs.modal', () => {
-      $modal.remove();
-    });
+  events() {
+    this.$modal.on('click', '[data-toggle="cd-confirm-close"]', event => this.close(event));
+    this.$modal.on('click', '[data-toggle="cd-confirm-confirm"]', event => this.confirm(event, this.$modal));
+  }
 
-    $modal.on('click', '[data-toggle="cd-confirm-btn"]', event => this.confirm(event, $modal));
+  close(event) {
+    this.$modal.removeClass('cd-in');
+    
+    setTimeout(() => {
+      this.$body.removeClass('cd-modal-open');
+      this.$modal.remove();
+      this.rmDrop();
+    }, TRANSITION_DURATION);
   }
 
   confirm(event, $modal) {
-    let $this = $(event.currentTarget);
-    let url = $this.data('url');
-
-    if (!url) {
-      return;
-    }
-
-    if (this.confirmType) {
-      let promise = $.ajax({
-        type: this.confirmType,
-        url,
-      }).always(() => {
-        $modal.modal('hide');
-      })
-
-      this.ajax && this.ajax(promise);
-
-    } else {
-      window.location = url;
-    }
+    
   }
 
   template() {
@@ -75,24 +68,20 @@ class Confirm {
       </div>
     `;
 
-    let confirmBtn = `
-      <button class="${this.confirmClass}" type="button" data-toggle="cd-confirm-btn" data-url="${this.confirmUrl}">
-        ${this.confirmText}
-      </button>
-    `;
-
     let modalFooter = `
       <div class="modal-footer">
-        <button class="${this.cancelClass}" type="button" data-dismiss="modal">
+        <button class="${this.cancelClass}" type="button" data-toggle="cd-confirm-close">
           ${this.cancelText}
         </button>
-        ${confirmBtn}
+        <button class="${this.confirmClass}" type="button" data-toggle="cd-confirm-confirm" data-url="${this.confirmUrl}">
+          ${this.confirmText}
+        </button>
       </div>
     `;
 
     return `
-      <div class="modal fade">
-        <div class="modal-dialog ${this.dialogClass}">
+      <div class="cd-modal cd-fade" style="display:block">
+        <div class="modal-dialog cd-modal-dialog ${this.dialogClass}">
           <div class="modal-content">
             ${modalHeader}
             ${modalBody}
@@ -102,6 +91,22 @@ class Confirm {
       </div>
     `;
 
+  }
+
+  rmDrop() {
+    this.$backdrop.remove();
+    this.$backdrop = null;
+  }
+
+  addDrop() {
+    this.$backdrop = $(document.createElement('dev'))
+                      .addClass('cd-modal-backdrop cd-fade')
+                      .appendTo(this.$body);
+
+
+    setTimeout(() => {
+      this.$backdrop.addClass('cd-in');
+    }, BACKDROP_TRANSITION_DURATION);
   }
 }
 

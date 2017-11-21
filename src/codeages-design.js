@@ -6,9 +6,7 @@ import table from './lib/table';
 import alert from './lib/alert';
 import btn from './lib/btn';
 
-import './less/codeages-design.less';
-
-let codeAgesDisign = {
+export {
   radio,
   confirm,
   loading,
@@ -17,5 +15,3 @@ let codeAgesDisign = {
   alert,
   btn
 };
-
-window.cd = codeAgesDisign;

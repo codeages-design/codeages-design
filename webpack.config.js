@@ -3,9 +3,11 @@ var path = require('path');
 
 var config = {
   entry: {
-    'codeages-design': './src/codeages-design.js',
+    'codeages-design': ['./src/less/codeages-design.less', './src/codeages-design.js']
   },
   output: {
+    libraryTarget: 'umd',
+    library: 'cd',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
     publicPath: '/',

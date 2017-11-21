@@ -24,11 +24,12 @@ class Alert {
       $parent.remove();
     }, 300);
 
-    this.cb();
+    this.close();
   }
 
-  cb() {
-
+  close(callback) {
+    callback && callback();
+    return this;
   }
 }
 

@@ -35,11 +35,21 @@ class Confirm {
   }
 
   events() {
-    this.$modal.on('click', '[data-toggle="cd-confirm-close"]', event => this.close(event));
-    this.$modal.on('click', '[data-toggle="cd-confirm-confirm"]', event => this.confirm(event, this.$modal));
+    this.$modal.on('click', '[data-toggle="cd-confirm-cancel"]', event => this.cancelEvent(event));
+    this.$modal.on('click', '[data-toggle="cd-confirm-confirm"]', event => this.confirmEvent(event, this.$modal));
   }
 
-  close(event) {
+  cancelEvent(event) {
+    this.rmConfirm(event);
+    this.cancel(event);
+  }
+
+  confirmEvent(event, $confirm) {
+    this.rmConfirm(event);
+    this.confirm(event, $confirm);
+  }
+
+  rmConfirm(event) {
     this.$modal.removeClass('cd-in');
     
     setTimeout(() => {
@@ -49,8 +59,12 @@ class Confirm {
     }, TRANSITION_DURATION);
   }
 
-  confirm(event, $modal) {
-    
+  cancel(event) {
+
+  }
+
+  confirm(event, $confirm) {
+
   }
 
   template() {
@@ -70,7 +84,7 @@ class Confirm {
 
     let modalFooter = `
       <div class="modal-footer">
-        <button class="${this.cancelClass}" type="button" data-toggle="cd-confirm-close">
+        <button class="${this.cancelClass}" type="button" data-toggle="cd-confirm-cancel">
           ${this.cancelText}
         </button>
         <button class="${this.confirmClass}" type="button" data-toggle="cd-confirm-confirm" data-url="${this.confirmUrl}">

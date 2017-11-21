@@ -4,6 +4,7 @@ import loading from './lib/loading';
 import upload from './lib/upload';
 import table from './lib/table';
 import alert from './lib/alert';
+import btn from './lib/btn';
 
 import './less/codeages-design.less';
 
@@ -13,7 +14,8 @@ let codeAgesDisign = {
   loading,
   upload,
   table,
-  alert
+  alert,
+  btn
 };
 
 window.cd = codeAgesDisign;

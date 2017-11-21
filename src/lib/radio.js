@@ -12,10 +12,10 @@ class Radio {
   }
 
   events() {
-    $(this.parent).on('click.cd.radio', this.el, event => this.clickHandle(event));
+    $(this.parent).on('click.cd.radio', this.el, event => this.clickEvent(event));
   }
 
-  clickHandle(event) {
+  clickEvent(event) {
     event.stopPropagation();
     let $this = $(event.currentTarget);
 

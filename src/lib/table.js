@@ -14,11 +14,11 @@ class Table {
   }
 
   events() {
-    $(this.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterHandle(event));
-    $(this.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortHandle(event));
+    $(this.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterEvent(event));
+    $(this.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortEvent(event));
   }
 
-  filterHandle(event) {
+  filterEvent(event) {
     let $this = $(event.currentTarget);
 
     if ($this.closest('li').hasClass('active')) {
@@ -43,7 +43,7 @@ class Table {
     this.cb($target, url);
   }
 
-  sortHandle(event) {
+  sortEvent(event) {
     let $this = $(event.currentTarget);
 
     let $target = $($this.data('target'));

@@ -12,10 +12,10 @@ class Alert {
   }
 
   events() {
-    $(this.parent).on('click.cd.alert.close', this.closeEl, (event) => this.closeHandle(event));
+    $(this.parent).on('click.cd.alert.close', this.closeEl, (event) => this.closeEvent(event));
   }
 
-  closeHandle(event) {
+  closeEvent(event) {
     let $this = $(event.currentTarget);
     let $parent = $this.parent();
     $parent.addClass('cd-alert-hide');

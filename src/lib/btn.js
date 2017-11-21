@@ -7,11 +7,6 @@ class Btn {
     this.$el = $(this.el);
     this.oldText = this.$el.html();
     this.text = this.$el.data('loadingText') || this.text;
-
-    this.init();
-  }
-
-  init() {
   }
 
   loading() {

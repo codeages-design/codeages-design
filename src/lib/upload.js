@@ -15,10 +15,10 @@ class Upload {
   }
 
   events() {
-    $(this.parent).on('change.cd.local-upload', this.el, event => this.uploadHandle(event));
+    $(this.parent).on('change.cd.local-upload', this.el, event => this.uploadEvent(event));
   }
 
-  uploadHandle(event) {
+  uploadEvent(event) {
     let target = event.currentTarget;
     let self = this;
 

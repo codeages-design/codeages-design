@@ -27,9 +27,8 @@ class Alert {
     this.close();
   }
 
-  close(callback) {
-    callback && callback();
-    return this;
+  close() {
+    
   }
 }
 

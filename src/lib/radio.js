@@ -1,7 +1,8 @@
 class Radio {
-  constructor(props) {
+  constructor(props, callback) {
     Object.assign(this, {
-      parent: document
+      parent: document,
+      callback
     }, props);
 
     this.init();
@@ -23,15 +24,17 @@ class Radio {
          .siblings().removeClass('checked');
          
     this.cb(event);
+    this.callback && this.callback(event);
   }
 
+  // @todo 废弃，请使用callback代替
   cb() {
 
   }
 }
 
-function radio(props) {
-  return new Radio(props);
+function radio(props, callback) {
+  return new Radio(props, callback);
 }
 
 // DATA-API

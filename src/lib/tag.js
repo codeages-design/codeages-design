@@ -1,4 +1,4 @@
-class Alert {
+class Tag {
   constructor(props) {
     Object.assign(this, {
       parent: document,
@@ -12,7 +12,7 @@ class Alert {
   }
 
   events() {
-    $(this.parent).on('click.cd.alert.close', this.closeEl, (event) => this.closeEvent(event));
+    $(this.parent).on('click.cd.tag.close', this.closeEl, (event) => this.closeEvent(event));
   }
 
   closeEvent(event) {
@@ -32,12 +32,12 @@ class Alert {
   }
 }
 
-function alert(props) {
-  return new Alert(props);
+function tag(props) {
+  return new Tag(props);
 }
 
 // DATA-API
-$(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]', function(event) {
+$(document).on('click.cd.tag.close.data-api', '[data-toggle="cd-tag-close"]', function(event) {
   event.stopPropagation();
   let $this = $(event.currentTarget);
   let $parent = $this.parent();
@@ -48,4 +48,4 @@ $(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]'
   }, 300);
 });
 
-export default alert;
+export default tag;

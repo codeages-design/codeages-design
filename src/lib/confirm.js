@@ -6,11 +6,9 @@ class Confirm {
     Object.assign(this, {
       title: '',
       content: '',
-      confirmText: 'Confirm',
+      okText: 'Confirm',
       cancelText: 'Cancel',
-      confirmClass: 'cd-btn cd-btn-link-danger cd-btn-lg',
-      cancelClass: 'cd-btn cd-btn-link-default cd-btn-lg',
-      dialogClass: 'cd-modal-dialog-sm',
+      confirmClass: '',
     }, props);
 
     this.$backdrop =  null;
@@ -36,7 +34,7 @@ class Confirm {
 
   events() {
     this.$modal.on('click', '[data-toggle="cd-confirm-cancel"]', event => this.cancelEvent(event));
-    this.$modal.on('click', '[data-toggle="cd-confirm-confirm"]', event => this.confirmEvent(event, this.$modal));
+    this.$modal.on('click', '[data-toggle="cd-confirm-ok"]', event => this.okEvent(event, this.$modal));
   }
 
   cancelEvent(event) {
@@ -44,7 +42,7 @@ class Confirm {
     this.cancel(event);
   }
 
-  confirmEvent(event, $confirm) {
+  okEvent(event, $confirm) {
     this.rmConfirm(event);
     this.confirm(event, $confirm);
   }
@@ -63,7 +61,7 @@ class Confirm {
 
   }
 
-  confirm(event, $confirm) {
+  ok(event, $confirm) {
 
   }
 
@@ -84,18 +82,18 @@ class Confirm {
 
     let modalFooter = `
       <div class="modal-footer">
-        <button class="${this.cancelClass}" type="button" data-toggle="cd-confirm-cancel">
+        <button class="cd-btn cd-btn-link-default cd-btn-lg" type="button" data-toggle="cd-confirm-cancel">
           ${this.cancelText}
         </button>
-        <button class="${this.confirmClass}" type="button" data-toggle="cd-confirm-confirm" data-url="${this.confirmUrl}">
-          ${this.confirmText}
+        <button class="cd-btn cd-btn-link-primary cd-btn-lg" type="button" data-toggle="cd-confirm-confirm" data-url="${this.confirmUrl}">
+          ${this.okText}
         </button>
       </div>
     `;
 
     return `
-      <div class="cd-modal cd-fade" style="display:block">
-        <div class="modal-dialog cd-modal-dialog ${this.dialogClass}">
+      <div class="cd-modal ${this.confirmClass} cd-fade" style="display:block">
+        <div class="cd-modal-dialog cd-modal-dialog-sm">
           <div class="modal-content">
             ${modalHeader}
             ${modalBody}
@@ -104,7 +102,6 @@ class Confirm {
         </div>
       </div>
     `;
-
   }
 
   rmDrop() {
@@ -113,10 +110,8 @@ class Confirm {
   }
 
   addDrop() {
-    this.$backdrop = $(document.createElement('dev'))
-                      .addClass('cd-modal-backdrop cd-fade')
-                      .appendTo(this.$body);
-
+    this.$backdrop = $(document.createElement('dev'));
+    this.$backdrop.addClass('cd-modal-backdrop cd-fade').appendTo(this.$body);
 
     setTimeout(() => {
       this.$backdrop.addClass('cd-in');

@@ -33,8 +33,12 @@
   &.disabled, 
   &[disabled] {
     opacity: 0.32;
-    pointer-events: none;
+    cursor: not-allowed;
   }
+}
+
+a.cd-btn.disabled {
+  pointer-events: none;
 }
 
 .cd-btn {

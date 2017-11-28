@@ -1,9 +1,14 @@
 .cd-select {
   position: relative;
+  .cd-form-control,
   .form-control {
     -webkit-appearance: none;
     -moz-appearance: none;
     border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    &:focus {
+      border-width: 2px;
+    }
   }
   &:after {
     position: absolute;

@@ -44,7 +44,7 @@ class Confirm {
 
   okEvent(event, $confirm) {
     this.rmConfirm(event);
-    this.confirm(event, $confirm);
+    this.ok(event, $confirm);
   }
 
   rmConfirm(event) {
@@ -85,7 +85,7 @@ class Confirm {
         <button class="cd-btn cd-btn-link-default cd-btn-lg" type="button" data-toggle="cd-confirm-cancel">
           ${this.cancelText}
         </button>
-        <button class="cd-btn cd-btn-link-primary cd-btn-lg" type="button" data-toggle="cd-confirm-confirm" data-url="${this.confirmUrl}">
+        <button class="cd-btn cd-btn-link-primary cd-btn-lg" type="button" data-toggle="cd-confirm-ok">
           ${this.okText}
         </button>
       </div>

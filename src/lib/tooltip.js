@@ -79,63 +79,63 @@ class Tooltip {
       case 'bottom':
         if (position.bottom + height > viewportPos.bottom) {
           return 'top';
-          break;
         }
+        break;
       case 'bottomLeft':
         if (position.bottom + height > viewportPos.bottom) {
           return 'topLeft';
-          break;
         }
+        break;
       case 'bottomRight':
         if (position.bottom + height > viewportPos.bottom) {
           return 'topRight';
-          break;
         }
+        break;
       case 'top': 
         if (position.top    - height < viewportPos.top) {
           return 'bottom';
-          break;
         }
+        break;
       case 'topLeft': 
         if (position.top    - height < viewportPos.top) {
           return 'bottomLeft';
-          break;
         }
+        break;
       case 'topRight': 
         if (position.top    - height < viewportPos.top) {
           return 'bottomRight';
-          break;
         }
+        break;
       case 'right':
         if (position.right  + width  > viewportPos.width) {
           return 'left';
-          break;
         }
+        break;
       case 'rightTop':
         if (position.right  + width  > viewportPos.width) {
           return 'leftTop';
-          break;
         }
+        break;
       case 'rightBottom':
         if (position.right  + width  > viewportPos.width) {
           return 'leftBottom';
-          break;
         }
+        break;
       case 'left':
         if (position.left   - width  < viewportPos.left) {
           return 'right';
-          break;
         }
+        break;
       case 'leftTop':
         if (position.left   - width  < viewportPos.left) {
           return 'rightBottom';
-          break;
         }
+        break;
       case 'leftBottom':
         if (position.left   - width  < viewportPos.left) {
           return 'rightBottom';
-          break;
         }
+        break;
     }
 
     return this.placement;

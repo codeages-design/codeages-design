@@ -74,66 +74,34 @@ class Tooltip {
     }
 
     const viewportPos = getPosition(this.viewport);
-
+    console.log(viewportPos, 'viewportPos');
     switch(this.placement) {
       case 'bottom':
-        if (position.bottom + height > viewportPos.bottom) {
-          return 'top';
-        }
-        break;
       case 'bottomLeft':
-        if (position.bottom + height > viewportPos.bottom) {
-          return 'topLeft';
-        }
-        break;
       case 'bottomRight':
-        if (position.bottom + height > viewportPos.bottom) {
-          return 'topRight';
+        if (position.bottom + height > viewportPos.height) {
+          return this.placement.replace(/^bottom/, 'top');
         }
         break;
       case 'top': 
-        if (position.top    - height < viewportPos.top) {
-          return 'bottom';
-        }
-        break;
       case 'topLeft': 
-        if (position.top    - height < viewportPos.top) {
-          return 'bottomLeft';
-        }
-        break;
       case 'topRight': 
         if (position.top    - height < viewportPos.top) {
-          return 'bottomRight';
+          return this.placement.replace(/^top/, 'bottom');
         }
         break;
       case 'right':
-        if (position.right  + width  > viewportPos.width) {
-          return 'left';
-        }
-        break;
       case 'rightTop':
-        if (position.right  + width  > viewportPos.width) {
-          return 'leftTop';
-        }
-        break;
       case 'rightBottom':
         if (position.right  + width  > viewportPos.width) {
-          return 'leftBottom';
+          return this.placement.replace(/^right/, 'left');
         }
         break;
       case 'left':
-        if (position.left   - width  < viewportPos.left) {
-          return 'right';
-        }
-        break;
       case 'leftTop':
-        if (position.left   - width  < viewportPos.left) {
-          return 'rightBottom';
-        }
-        break;
       case 'leftBottom':
         if (position.left   - width  < viewportPos.left) {
-          return 'rightBottom';
+          return this.placement.replace(/^left/, 'right');
         }
         break;
     }

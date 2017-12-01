@@ -89,75 +89,110 @@ module.exports = __webpack_require__(2);
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__lib_btn__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__lib_radio__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__lib_checkbox__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__lib_switch__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__lib_loading__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__lib_upload__ = __webpack_require__(8);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__lib_table__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__lib_alert__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__lib_tag__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__lib_confirm__ = __webpack_require__(12);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__lib_message__ = __webpack_require__(13);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__lib_tooltip__ = __webpack_require__(14);
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "btn", function() { return __WEBPACK_IMPORTED_MODULE_0__lib_btn__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "radio", function() { return __WEBPACK_IMPORTED_MODULE_1__lib_radio__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "checkbox", function() { return __WEBPACK_IMPORTED_MODULE_2__lib_checkbox__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "onoff", function() { return __WEBPACK_IMPORTED_MODULE_3__lib_switch__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "loading", function() { return __WEBPACK_IMPORTED_MODULE_4__lib_loading__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "upload", function() { return __WEBPACK_IMPORTED_MODULE_5__lib_upload__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "table", function() { return __WEBPACK_IMPORTED_MODULE_6__lib_table__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "alert", function() { return __WEBPACK_IMPORTED_MODULE_7__lib_alert__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "tag", function() { return __WEBPACK_IMPORTED_MODULE_8__lib_tag__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "confirm", function() { return __WEBPACK_IMPORTED_MODULE_9__lib_confirm__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "message", function() { return __WEBPACK_IMPORTED_MODULE_10__lib_message__["a"]; });
+/* harmony reexport (binding) */ __webpack_require__.d(__webpack_exports__, "tooltip", function() { return __WEBPACK_IMPORTED_MODULE_11__lib_tooltip__["a"]; });
 
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.btn = exports.alert = exports.table = exports.upload = exports.loading = exports.confirm = exports.radio = undefined;
 
-var _radio = __webpack_require__(3);
 
-var _radio2 = _interopRequireDefault(_radio);
 
-var _confirm = __webpack_require__(4);
 
-var _confirm2 = _interopRequireDefault(_confirm);
 
-var _loading = __webpack_require__(5);
 
-var _loading2 = _interopRequireDefault(_loading);
 
-var _upload = __webpack_require__(6);
 
-var _upload2 = _interopRequireDefault(_upload);
 
-var _table = __webpack_require__(7);
 
-var _table2 = _interopRequireDefault(_table);
 
-var _alert = __webpack_require__(8);
 
-var _alert2 = _interopRequireDefault(_alert);
-
-var _btn = __webpack_require__(9);
-
-var _btn2 = _interopRequireDefault(_btn);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.radio = _radio2.default;
-exports.confirm = _confirm2.default;
-exports.loading = _loading2.default;
-exports.upload = _upload2.default;
-exports.table = _table2.default;
-exports.alert = _alert2.default;
-exports.btn = _btn2.default;
 
 /***/ }),
 /* 3 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
+var Btn = function () {
+  function Btn(props) {
+    _classCallCheck(this, Btn);
 
+    Object.assign(this, {
+      text: 'loading...'
+    }, props);
+
+    this.$el = $(this.el);
+    this.oldText = this.$el.html();
+    this.text = this.$el.data('loadingText') || this.text;
+  }
+
+  _createClass(Btn, [{
+    key: 'loading',
+    value: function loading() {
+      this.$el.html(this.text).prop('disabled', true);
+      return this;
+    }
+  }, {
+    key: 'reset',
+    value: function reset() {
+      this.$el.html(this.oldText).prop('disabled', false);
+      return this;
+    }
+  }]);
+
+  return Btn;
+}();
+
+function btn(props) {
+  return new Btn(props);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (btn);
+
+/***/ }),
+/* 4 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Radio = function () {
-  function Radio(props) {
+  function Radio(props, callback) {
     _classCallCheck(this, Radio);
 
     Object.assign(this, {
-      parent: document
+      parent: document,
+      callback: callback
     }, props);
 
     this.init();
@@ -186,7 +221,11 @@ var Radio = function () {
       $this.parent().addClass('checked').siblings().removeClass('checked');
 
       this.cb(event);
+      this.callback && this.callback(event);
     }
+
+    // @todo 废弃，请使用callback代替
+
   }, {
     key: 'cb',
     value: function cb() {}
@@ -195,8 +234,8 @@ var Radio = function () {
   return Radio;
 }();
 
-function radio(props) {
-  return new Radio(props);
+function radio(props, callback) {
+  return new Radio(props, callback);
 }
 
 // DATA-API
@@ -207,156 +246,157 @@ $(document).on('click.cd.radio.data-api', '[data-toggle="cd-radio"]', function (
   $this.parent().addClass('checked').siblings().removeClass('checked');
 });
 
-exports.default = radio;
+/* harmony default export */ __webpack_exports__["a"] = (radio);
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var TRANSITION_DURATION = 300;
-var BACKDROP_TRANSITION_DURATION = 150;
-
-var Confirm = function () {
-  function Confirm(props) {
-    _classCallCheck(this, Confirm);
+var Checkbox = function () {
+  function Checkbox(props, callback) {
+    _classCallCheck(this, Checkbox);
 
     Object.assign(this, {
-      title: '',
-      content: '',
-      confirmText: 'Confirm',
-      cancelText: 'Cancel',
-      confirmClass: 'cd-btn cd-btn-link-danger cd-btn-lg',
-      cancelClass: 'cd-btn cd-btn-link-default cd-btn-lg',
-      dialogClass: 'cd-modal-dialog-sm'
+      parent: document,
+      callback: callback
     }, props);
-
-    this.$backdrop = null;
-    this.$body = $(document.body);
-    this.$modal = null;
 
     this.init();
   }
 
-  _createClass(Confirm, [{
+  _createClass(Checkbox, [{
     key: 'init',
     value: function init() {
-      var _this = this;
-
-      this.addDrop();
-
-      var html = this.template();
-      this.$modal = $(html);
-      this.$modal.appendTo(this.$body.addClass('cd-modal-open'));
-
-      setTimeout(function () {
-        _this.$modal.addClass('cd-in');
-      }, TRANSITION_DURATION);
-
       this.events();
     }
   }, {
     key: 'events',
     value: function events() {
-      var _this2 = this;
+      var _this = this;
 
-      this.$modal.on('click', '[data-toggle="cd-confirm-cancel"]', function (event) {
-        return _this2.cancelEvent(event);
-      });
-      this.$modal.on('click', '[data-toggle="cd-confirm-confirm"]', function (event) {
-        return _this2.confirmEvent(event, _this2.$modal);
+      $(this.parent).on('click.cd.checkbox', this.el, function (event) {
+        return _this.clickEvent(event);
       });
     }
   }, {
-    key: 'cancelEvent',
-    value: function cancelEvent(event) {
-      this.rmConfirm(event);
-      this.cancel(event);
-    }
-  }, {
-    key: 'confirmEvent',
-    value: function confirmEvent(event, $confirm) {
-      this.rmConfirm(event);
-      this.confirm(event, $confirm);
-    }
-  }, {
-    key: 'rmConfirm',
-    value: function rmConfirm(event) {
-      var _this3 = this;
+    key: 'clickEvent',
+    value: function clickEvent(event) {
+      event.stopPropagation();
+      var $this = $(event.currentTarget);
 
-      this.$modal.removeClass('cd-in');
+      if ($this.parent().hasClass('checked')) {
+        $this.parent().removeClass('checked');
+      } else {
+        $this.parent().addClass('checked');
+      }
 
-      setTimeout(function () {
-        _this3.$body.removeClass('cd-modal-open');
-        _this3.$modal.remove();
-        _this3.rmDrop();
-      }, TRANSITION_DURATION);
-    }
-  }, {
-    key: 'cancel',
-    value: function cancel(event) {}
-  }, {
-    key: 'confirm',
-    value: function confirm(event, $confirm) {}
-  }, {
-    key: 'template',
-    value: function template() {
-      var modalHeader = this.title ? '\n      <div class="modal-header">\n        <h4 class="modal-title">' + this.title + '</h4>\n      </div>\n    ' : '';
-
-      var modalBody = '\n      <div class="modal-body">\n        <div class="cd-pb24 cd-text-gray-dark">\n          ' + this.content + '\n        </div>\n      </div>\n    ';
-
-      var modalFooter = '\n      <div class="modal-footer">\n        <button class="' + this.cancelClass + '" type="button" data-toggle="cd-confirm-cancel">\n          ' + this.cancelText + '\n        </button>\n        <button class="' + this.confirmClass + '" type="button" data-toggle="cd-confirm-confirm" data-url="' + this.confirmUrl + '">\n          ' + this.confirmText + '\n        </button>\n      </div>\n    ';
-
-      return '\n      <div class="cd-modal cd-fade" style="display:block">\n        <div class="modal-dialog cd-modal-dialog ' + this.dialogClass + '">\n          <div class="modal-content">\n            ' + modalHeader + '\n            ' + modalBody + '\n            ' + modalFooter + '\n          </div>\n        </div>\n      </div>\n    ';
-    }
-  }, {
-    key: 'rmDrop',
-    value: function rmDrop() {
-      this.$backdrop.remove();
-      this.$backdrop = null;
-    }
-  }, {
-    key: 'addDrop',
-    value: function addDrop() {
-      var _this4 = this;
-
-      this.$backdrop = $(document.createElement('dev')).addClass('cd-modal-backdrop cd-fade').appendTo(this.$body);
-
-      setTimeout(function () {
-        _this4.$backdrop.addClass('cd-in');
-      }, BACKDROP_TRANSITION_DURATION);
+      this.callback && this.callback(event);
     }
   }]);
 
-  return Confirm;
+  return Checkbox;
 }();
 
-function confirm(props) {
-  return new Confirm(props);
+function checkbox(props, callback) {
+  return new Checkbox(props, callback);
 }
 
-exports.default = confirm;
+// DATA-API
+$(document).on('click.cd.checkbox.data-api', '[data-toggle="cd-checkbox"]', function (event) {
+  event.stopPropagation();
+  var $this = $(event.currentTarget);
+
+  if ($this.parent().hasClass('checked')) {
+    $this.parent().removeClass('checked');
+  } else {
+    $this.parent().addClass('checked');
+  }
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (checkbox);
 
 /***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
+var Switch = function () {
+  function Switch(props, callback) {
+    _classCallCheck(this, Switch);
+
+    Object.assign(this, {
+      parent: document,
+      callback: callback
+    }, props);
+
+    this.init();
+  }
+
+  _createClass(Switch, [{
+    key: 'init',
+    value: function init() {
+      this.events();
+    }
+  }, {
+    key: 'events',
+    value: function events() {
+      var _this = this;
+
+      $(this.parent).on('click.cd.switch', this.el, function (event) {
+        return _this.clickEvent(event);
+      });
+    }
+  }, {
+    key: 'clickEvent',
+    value: function clickEvent(event) {
+      event.stopPropagation();
+      var $this = $(event.currentTarget);
+
+      if ($this.parent().hasClass('checked')) {
+        $this.parent().removeClass('checked');
+      } else {
+        $this.parent().addClass('checked');
+      }
+
+      this.callback && this.callback(event);
+    }
+  }]);
+
+  return Switch;
+}();
+
+function onoff(props, callback) {
+  return new Switch(props, callback);
+}
+
+// DATA-API
+$(document).on('click.cd.switch.data-api', '[data-toggle="cd-switch"]', function (event) {
+  event.stopPropagation();
+  var $this = $(event.currentTarget);
+
+  if ($this.parent().hasClass('checked')) {
+    $this.parent().removeClass('checked');
+  } else {
+    $this.parent().addClass('checked');
+  }
 });
+
+/* harmony default export */ __webpack_exports__["a"] = (onoff);
+
+/***/ }),
+/* 7 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 var loading = function loading() {
   var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { isFixed: false },
       isFixed = _ref.isFixed;
@@ -364,19 +404,13 @@ var loading = function loading() {
   return '<div class="cd-loading ' + (isFixed ? 'cd-loading-fixed' : '') + '">\n            <div class="loading-content">\n              <div></div>\n              <div></div>\n              <div></div>\n            </div>\n          </div>';
 };
 
-exports.default = loading;
+/* harmony default export */ __webpack_exports__["a"] = (loading);
 
 /***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 8 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -560,19 +594,13 @@ function upload(props) {
 //   }
 // })
 
-exports.default = upload;
+/* harmony default export */ __webpack_exports__["a"] = (upload);
 
 /***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 9 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -672,19 +700,13 @@ function table(props) {
   return new Table(props);
 }
 
-exports.default = table;
+/* harmony default export */ __webpack_exports__["a"] = (table);
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -719,20 +741,17 @@ var Alert = function () {
     value: function closeEvent(event) {
       var $this = $(event.currentTarget);
       var $parent = $this.parent();
-      $parent.addClass('cd-alert-hide');
+      $parent.addClass('cd-hide');
 
       setTimeout(function () {
         $parent.remove();
       }, 300);
 
-      this.close();
+      this.close(event);
     }
   }, {
     key: 'close',
-    value: function close(cb) {
-      cb & cb();
-      return this;
-    }
+    value: function close(event) {}
   }]);
 
   return Alert;
@@ -747,65 +766,574 @@ $(document).on('click.cd.alert.close.data-api', '[data-toggle="cd-alert-close"]'
   event.stopPropagation();
   var $this = $(event.currentTarget);
   var $parent = $this.parent();
-  $parent.addClass('cd-alert-hide');
+  $parent.addClass('cd-hide');
 
   setTimeout(function () {
     $parent.remove();
   }, 300);
 });
 
-exports.default = alert;
+/* harmony default export */ __webpack_exports__["a"] = (alert);
 
 /***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Btn = function () {
-  function Btn(props) {
-    _classCallCheck(this, Btn);
+var Tag = function () {
+  function Tag(props) {
+    _classCallCheck(this, Tag);
 
     Object.assign(this, {
-      text: 'loading...'
+      parent: document
     }, props);
 
-    this.$el = $(this.el);
-    this.oldText = this.$el.html();
-    this.text = this.$el.data('loadingText') || this.text;
+    this.init();
   }
 
-  _createClass(Btn, [{
-    key: 'loading',
-    value: function loading() {
-      this.$el.html(this.text).prop('disabled', true);
-      return this;
+  _createClass(Tag, [{
+    key: 'init',
+    value: function init() {
+      this.events();
     }
   }, {
-    key: 'reset',
-    value: function reset() {
-      this.$el.html(this.oldText).prop('disabled', false);
-      return this;
+    key: 'events',
+    value: function events() {
+      var _this = this;
+
+      $(this.parent).on('click.cd.tag.close', this.closeEl, function (event) {
+        return _this.closeEvent(event);
+      });
+    }
+  }, {
+    key: 'closeEvent',
+    value: function closeEvent(event) {
+      var $this = $(event.currentTarget);
+      var $parent = $this.parent();
+      $parent.addClass('cd-hide');
+
+      setTimeout(function () {
+        $parent.remove();
+      }, 300);
+
+      this.close(event);
+    }
+  }, {
+    key: 'close',
+    value: function close(event) {}
+  }]);
+
+  return Tag;
+}();
+
+function tag(props) {
+  return new Tag(props);
+}
+
+// DATA-API
+$(document).on('click.cd.tag.close.data-api', '[data-toggle="cd-tag-close"]', function (event) {
+  event.stopPropagation();
+  var $this = $(event.currentTarget);
+  var $parent = $this.parent();
+  $parent.addClass('cd-hide');
+
+  setTimeout(function () {
+    $parent.remove();
+  }, 300);
+});
+
+/* harmony default export */ __webpack_exports__["a"] = (tag);
+
+/***/ }),
+/* 12 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TRANSITION_DURATION = 300;
+var BACKDROP_TRANSITION_DURATION = 150;
+
+var Confirm = function () {
+  function Confirm(props) {
+    _classCallCheck(this, Confirm);
+
+    Object.assign(this, {
+      title: '',
+      content: '',
+      okText: 'Confirm',
+      cancelText: 'Cancel',
+      confirmClass: ''
+    }, props);
+
+    this.$backdrop = null;
+    this.$body = $(document.body);
+    this.$modal = null;
+
+    this.init();
+  }
+
+  _createClass(Confirm, [{
+    key: 'init',
+    value: function init() {
+      var _this = this;
+
+      this.addDrop();
+
+      var html = this.template();
+      this.$modal = $(html);
+      this.$modal.appendTo(this.$body.addClass('cd-modal-open'));
+
+      setTimeout(function () {
+        _this.$modal.addClass('cd-in');
+      }, TRANSITION_DURATION);
+
+      this.events();
+    }
+  }, {
+    key: 'events',
+    value: function events() {
+      var _this2 = this;
+
+      this.$modal.on('click', '[data-toggle="cd-confirm-cancel"]', function (event) {
+        return _this2.cancelEvent(event);
+      });
+      this.$modal.on('click', '[data-toggle="cd-confirm-ok"]', function (event) {
+        return _this2.okEvent(event, _this2.$modal);
+      });
+    }
+  }, {
+    key: 'cancelEvent',
+    value: function cancelEvent(event) {
+      this.rmConfirm(event);
+      this.cancel(event);
+    }
+  }, {
+    key: 'okEvent',
+    value: function okEvent(event, $confirm) {
+      this.rmConfirm(event);
+      this.ok(event, $confirm);
+    }
+  }, {
+    key: 'rmConfirm',
+    value: function rmConfirm(event) {
+      var _this3 = this;
+
+      this.$modal.removeClass('cd-in');
+
+      setTimeout(function () {
+        _this3.$body.removeClass('cd-modal-open');
+        _this3.$modal.remove();
+        _this3.rmDrop();
+      }, TRANSITION_DURATION);
+    }
+  }, {
+    key: 'cancel',
+    value: function cancel(event) {}
+  }, {
+    key: 'ok',
+    value: function ok(event, $confirm) {}
+  }, {
+    key: 'template',
+    value: function template() {
+      var modalHeader = this.title ? '\n      <div class="modal-header">\n        <h4 class="modal-title">' + this.title + '</h4>\n      </div>\n    ' : '';
+
+      var modalBody = '\n      <div class="modal-body">\n        <div class="cd-pb24 cd-text-gray-dark">\n          ' + this.content + '\n        </div>\n      </div>\n    ';
+
+      var modalFooter = '\n      <div class="modal-footer">\n        <button class="cd-btn cd-btn-link-default cd-btn-lg" type="button" data-toggle="cd-confirm-cancel">\n          ' + this.cancelText + '\n        </button>\n        <button class="cd-btn cd-btn-link-primary cd-btn-lg" type="button" data-toggle="cd-confirm-ok">\n          ' + this.okText + '\n        </button>\n      </div>\n    ';
+
+      return '\n      <div class="cd-modal ' + this.confirmClass + ' cd-fade" style="display:block">\n        <div class="cd-modal-dialog cd-modal-dialog-sm">\n          <div class="modal-content">\n            ' + modalHeader + '\n            ' + modalBody + '\n            ' + modalFooter + '\n          </div>\n        </div>\n      </div>\n    ';
+    }
+  }, {
+    key: 'rmDrop',
+    value: function rmDrop() {
+      this.$backdrop.remove();
+      this.$backdrop = null;
+    }
+  }, {
+    key: 'addDrop',
+    value: function addDrop() {
+      var _this4 = this;
+
+      this.$backdrop = $(document.createElement('dev'));
+      this.$backdrop.addClass('cd-modal-backdrop cd-fade').appendTo(this.$body);
+
+      setTimeout(function () {
+        _this4.$backdrop.addClass('cd-in');
+      }, BACKDROP_TRANSITION_DURATION);
     }
   }]);
 
-  return Btn;
+  return Confirm;
 }();
 
-function btn(props) {
-  return new Btn(props);
+function confirm(props) {
+  return new Confirm(props);
 }
 
-exports.default = btn;
+/* harmony default export */ __webpack_exports__["a"] = (confirm);
+
+/***/ }),
+/* 13 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var TRANSITION_DURATION = 300;
+
+var Message = function () {
+  function Message(props) {
+    _classCallCheck(this, Message);
+
+    Object.assign(this, {
+      type: '',
+      message: '',
+      action: {
+        title: '',
+        url: '',
+        template: ''
+      },
+      delay: 3000,
+      animate: {
+        enter: 'cd-animated cd-fadeInDownSmall',
+        exit: 'cd-animated cd-fadeOutUp'
+      },
+      offset: 80,
+      z_index: 9999
+    }, props);
+
+    this.$message = null;
+    this.$body = $(document.body);
+
+    this.init();
+  }
+
+  _createClass(Message, [{
+    key: 'init',
+    value: function init() {
+      var _this = this;
+
+      this.template();
+      setTimeout(function () {
+        return _this.close();
+      }, this.delay);
+    }
+  }, {
+    key: 'template',
+    value: function template() {
+      this.$message = $(document.createElement('div')).addClass('cd-message-warp');
+
+      var actionHtml = '';
+      if (this.action.template) {
+        actionHtml = '<span class="cd-message-action">' + this.action.template + '</span>';
+      } else if (this.action.title) {
+        actionHtml = '<span class="cd-message-action"><a href="' + this.action.url + '" target="_blank">' + this.action.title + '</a></span>';
+      }
+
+      var html = '\n      <div class="cd-message cd-message-' + this.type + '">\n        <i class="cd-icon cd-icon-' + this.type + '"></i>\n        <span>' + this.message + '</span>\n        ' + actionHtml + '\n      </div>\n    ';
+
+      this.$message.addClass(this.animate.enter).css({
+        top: this.offset + 'px',
+        left: 0,
+        right: 0,
+        'z-index': this.z_index,
+        position: 'fixed'
+      });
+
+      this.$message.html(html).appendTo(this.$body);
+    }
+  }, {
+    key: 'close',
+    value: function close() {
+      var _this2 = this;
+
+      this.$message.removeClass(this.animate.enter).addClass(this.animate.exit);
+
+      setTimeout(function () {
+        _this2.$message.remove();
+        _this2.$message = null;
+      }, TRANSITION_DURATION);
+    }
+  }]);
+
+  return Message;
+}();
+
+function message(props) {
+  return new Message(props);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (message);
+
+/***/ }),
+/* 14 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils__ = __webpack_require__(15);
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+
+
+var TRANSITION_DURATION = 300;
+
+var Tooltip = function () {
+  function Tooltip(props) {
+    _classCallCheck(this, Tooltip);
+
+    Object.assign(this, {
+      parent: document,
+      container: document.body,
+      viewport: document.body,
+      element: '[data-toggle="cd-tooltip"]',
+      placement: 'top',
+      offset: 10,
+      delay: 0,
+      title: 'Plase add title',
+      type: 'tooltip'
+    }, props);
+
+    this.init();
+  }
+
+  _createClass(Tooltip, [{
+    key: 'init',
+    value: function init() {
+      this.events();
+    }
+  }, {
+    key: 'events',
+    value: function events() {
+      var _this = this;
+
+      $(this.parent).on('mouseenter.cd.tooltip', this.element, function (event) {
+        return _this.showEvent(event);
+      });
+      $(this.parent).on('mouseleave.cd.tooltip', this.element, function (event) {
+        return _this.closeEvent(event);
+      });
+    }
+  }, {
+    key: 'showEvent',
+    value: function showEvent(event) {
+      var _this2 = this;
+
+      event.stopPropagation();
+      var $this = $(event.currentTarget);
+
+      Object.assign(this, {
+        container: $this.data('container') ? $this.data('container') : this.container,
+        title: $this.data('title') ? $this.data('title') : this.title,
+        placement: $this.data('placement') ? $this.data('placement') : this.placement
+      });
+
+      this.$template ? this.$template.remove() : null;
+
+      this.$template = $(document.createElement('div')).addClass('cd-tooltip').attr('id', this.getUID(this.type)).html(this.title);
+
+      this.container ? this.$template.appendTo(this.container) : this.$template.insertAfter($this);
+
+      var position = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* getPosition */])(event.currentTarget);
+      var width = this.$template[0].offsetWidth;
+      var height = this.$template[0].offsetHeight;
+
+      this.$template.css(this.setCss(this.placement, position, width, height)).addClass(this.placement);
+
+      clearTimeout(this.timeout);
+
+      this.timeout = setTimeout(function () {
+        _this2.$template.addClass('cd-in');
+      }, TRANSITION_DURATION + this.delay);
+    }
+  }, {
+    key: 'getUID',
+    value: function getUID(prefix) {
+      do {
+        prefix += ~~(Math.random() * 1000000);
+      } while (document.getElementById(prefix));
+      return prefix;
+    }
+  }, {
+    key: 'fixPlacement',
+    value: function fixPlacement(position, width, height) {
+      var viewportPos = Object(__WEBPACK_IMPORTED_MODULE_0__utils__["a" /* getPosition */])(this.viewport);
+
+      switch (this.placement) {
+        case 'bottom':
+          if (position.bottom + height > viewportPos.bottom) {
+            return 'top';
+            break;
+          }
+        case 'bottomLeft':
+          if (position.bottom + height > viewportPos.bottom) {
+            return 'topLeft';
+            break;
+          }
+        case 'bottomRight':
+          if (position.bottom + height > viewportPos.bottom) {
+            return 'topRight';
+            break;
+          }
+        case 'top':
+          if (position.top - height < viewportPos.top) {
+            return 'bottom';
+            break;
+          }
+        case 'topLeft':
+          if (position.top - height < viewportPos.top) {
+            return 'bottomLeft';
+            break;
+          }
+        case 'topRight':
+          if (position.top - height < viewportPos.top) {
+            return 'bottomRight';
+            break;
+          }
+        case 'right':
+          if (position.right + width > viewportPos.width) {
+            return 'left';
+            break;
+          }
+        case 'rightTop':
+          if (position.right + width > viewportPos.width) {
+            return 'leftTop';
+            break;
+          }
+        case 'rightBottom':
+          if (position.right + width > viewportPos.width) {
+            return 'leftBottom';
+            break;
+          }
+        case 'left':
+          if (position.left - width < viewportPos.left) {
+            return 'right';
+            break;
+          }
+        case 'leftTop':
+          if (position.left - width < viewportPos.left) {
+            return 'rightBottom';
+            break;
+          }
+        case 'leftBottom':
+          if (position.left - width < viewportPos.left) {
+            return 'rightBottom';
+            break;
+          }
+      }
+
+      return this.placement;
+    }
+  }, {
+    key: 'setCss',
+    value: function setCss(position, width, height) {
+      this.placement = this.fixPlacement(position, width, height);
+
+      var placements = {
+        topLeft: {
+          top: position.top - height - this.offset,
+          left: position.left
+        },
+        top: {
+          top: position.top - height - this.offset,
+          left: position.left + position.width / 2 - width / 2
+        },
+        topRight: {
+          top: position.top - height - this.offset,
+          left: position.left + position.width - width
+        },
+        leftTop: {
+          top: position.top,
+          left: position.left - width - this.offset
+        },
+        left: {
+          top: position.top + position.height / 2 - height / 2,
+          left: position.left - width - this.offset
+        },
+        leftBottom: {
+          top: position.top + position.height - height,
+          left: position.left - width - this.offset
+        },
+        rightTop: {
+          top: position.top,
+          left: position.left + position.width + this.offset
+        },
+        right: {
+          top: position.top + position.height / 2 - height / 2,
+          left: position.left + position.width + this.offset
+        },
+        rightBottom: {
+          top: position.top + position.height - height,
+          left: position.left + position.width + this.offset
+        },
+        bottomLeft: {
+          top: position.top + position.height + this.offset,
+          left: position.left
+        },
+        bottom: {
+          top: position.top + position.height + this.offset,
+          left: position.left + position.width / 2 - width / 2
+        },
+        bottomRight: {
+          top: position.top + position.height + this.offset,
+          left: position.left + position.width - width
+        }
+      };
+
+      return placements[this.placement];
+    }
+  }, {
+    key: 'closeEvent',
+    value: function closeEvent(event) {
+      var _this3 = this;
+
+      this.$template.removeClass('cd-in');
+
+      clearTimeout(this.timeout);
+
+      this.timeout = setTimeout(function () {
+        _this3.$template.remove();
+        _this3.$template = null;
+      }, TRANSITION_DURATION);
+    }
+  }]);
+
+  return Tooltip;
+}();
+
+function tooltip(props) {
+  return new Tooltip(props);
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (tooltip);
+
+/***/ }),
+/* 15 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getPosition; });
+var getPosition = function getPosition(el) {
+  var elRect = el.getBoundingClientRect();
+  var isBody = el.tagName == 'BODY';
+  var elOffset = isBody ? { top: 0, left: 0 } : $(el).offset();
+  var scroll = {
+    scroll: isBody ? document.documentElement.scrollTop || document.body.scrollTop : $(el).scrollTop()
+  };
+  var outerDims = isBody ? { width: $(window).width(), height: $(window).height() } : null;
+
+  return $.extend({}, elRect, scroll, outerDims, elOffset);
+};
 
 /***/ })
 /******/ ]);

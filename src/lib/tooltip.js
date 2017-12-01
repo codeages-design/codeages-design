@@ -74,7 +74,7 @@ class Tooltip {
     }
 
     const viewportPos = getPosition(this.viewport);
-    console.log(viewportPos, 'viewportPos');
+    
     switch(this.placement) {
       case 'bottom':
       case 'bottomLeft':

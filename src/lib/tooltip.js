@@ -8,7 +8,7 @@ class Tooltip {
       parent: document,
       container: document.body,
       viewport: document.body,
-      element: '[data-toggle="cd-tooltip"]',
+      el: '[data-toggle="cd-tooltip"]',
       placement: 'top',
       offset: 10,
       delay: 0,
@@ -24,8 +24,8 @@ class Tooltip {
   }
 
   events() {
-    $(this.parent).on('mouseenter.cd.tooltip', this.element, (event) => this.showEvent(event));
-    $(this.parent).on('mouseleave.cd.tooltip', this.element, (event) => this.closeEvent(event));
+    $(this.parent).on('mouseenter.cd.tooltip', this.el, (event) => this.showEvent(event));
+    $(this.parent).on('mouseleave.cd.tooltip', this.el, (event) => this.closeEvent(event));
   }
 
   showEvent(event) {
@@ -74,7 +74,7 @@ class Tooltip {
     }
 
     const viewportPos = getPosition(this.viewport);
-    
+
     switch(this.placement) {
       case 'bottom':
       case 'bottomLeft':

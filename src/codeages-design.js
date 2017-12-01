@@ -9,6 +9,7 @@ import alert from './lib/alert';
 import tag from './lib/tag';
 import confirm from './lib/confirm';
 import message from './lib/message';
+import tooltip from './lib/tooltip';
 
 export {
   btn,
@@ -21,5 +22,6 @@ export {
   alert,
   tag,
   confirm,
-  message
+  message,
+  tooltip
 };

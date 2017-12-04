@@ -1,34 +1,61 @@
-.cd-design {
-  .pagination > li > a {
-    border: 2px solid rgba(0,0,0,0.16);
-    padding: 2px 2px;
-    margin: 4px;
-    background-color: #fff;
-    color: @cd-gray-dark;
-    width: 28px;
-    font-size: 12px;
-    line-height: 20px;
-    text-align: center;
-    .cd-transition;
-    > i {
-      font-size: 14px;
-      line-height: 18px;
-      vertical-align: middle;
+.cd-pagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 24px 0;
+  > li {
+    display: inline;
+    .cd-pagination-li();
+    > a {
+      .cd-pagination-li-a();
     }
   }
+}
 
-  .pagination > li > a:hover {
+.cd-pagination-li() {
+  &.active > a, 
+  &.active > a:hover, 
+  &.active > a:focus {
+    background-color: @brand-primary;
+    border-color: @brand-primary;
+    color: #fff;
+    cursor: default;
+    .cd-box-shadow(0);
+  }
+}
+
+.cd-pagination-li-a() {
+  position: relative;
+  float: left;
+  border: 2px solid rgba(0,0,0,0.16);
+  padding: 2px 2px;
+  margin: 4px;
+  background-color: #fff;
+  color: @cd-gray-dark;
+  width: 28px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+  .cd-transition;
+  &:hover {
     border-color: @brand-primary;
     color: @brand-primary;
     .cd-box-shadow(6px);
   }
+  > i {
+    font-size: 14px;
+    line-height: 18px;
+    vertical-align: middle;
+  }
+}
 
-  .pagination > .active > a, 
-  .pagination > .active > a:hover, 
-  .pagination > .active > a:focus {
-    background-color: @brand-primary;
-    border-color: @brand-primary;
-    color: #fff;
-    .cd-box-shadow(0);
+// 兼容
+.cd-design {
+  .pagination > li {
+    .cd-pagination-li();
+    > a {
+      .cd-pagination-li-a();
+    }
   }
 }

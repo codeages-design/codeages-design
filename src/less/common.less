@@ -14,11 +14,22 @@ body.cd-design {
   background: @cd-bg;
   line-height: 22px;
   font-size: 14px;
+  color: rgba(0, 0, 0, 0.56);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: Helvetica Neue,Helvetica,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,sans-serif;
+}
+
+@font-face {
+  font-family: "helvetica neue";
+  src: local("helvetica neue");
+  unicode-range: U+30-39;
 }
 
 .cd-container {
   padding-left: 12px;
   padding-right: 12px;
+  margin: 0 auto;
   @media(min-width: @screen-lg-min) {
     width: 1200px;
   }

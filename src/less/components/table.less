@@ -91,11 +91,14 @@
   }
   .table-action {
     padding: 2px 0;
-    .table-action__item {
+    // 待删除 table-action__item
+    .table-action__item,
+    .table-action-item {
       padding-right: 4px;
       line-height: 8px;
       display: inline-block;
-      & + .table-action__item {
+      & + .table-action__item,
+      & + .table-action-item {
         padding-left: 8px;
         .cd-box-shadow-inset;
       }

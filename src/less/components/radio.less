@@ -18,6 +18,9 @@
   margin-bottom: 0;
   &:hover {
     cursor: pointer;
+    &:before {
+      border-color: @brand-primary;
+    }
   }
   &:before {
     content: '';
@@ -32,6 +35,7 @@
   }
   &.checked:before {
     border-color: @brand-primary;
+    background: @brand-primary;
   }
   &.checked:after {
     content: '';
@@ -40,7 +44,7 @@
     left: 4px;
     width: 6px;
     height: 6px;
-    background: @brand-primary;
+    background: white;
     border-radius: 50%;
     display: inline-block;
   }
@@ -57,8 +61,8 @@
       height: 12px;
     }
     &.checked:after {
-      top: 3px;
-      left: 3px;
+      width: 4px;
+      height: 4px;
     }
   }
   > input {

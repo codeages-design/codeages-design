@@ -149,6 +149,6 @@ function upload(props) {
 //   },
 //   error(code) {
 //   }
-// })
+// });
 
 export default upload;

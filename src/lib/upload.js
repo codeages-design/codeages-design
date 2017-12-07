@@ -146,10 +146,8 @@ function upload(props) {
 //   el: '',
 //   type: 'normal',
 //   success() {
-
 //   },
 //   error(code) {
-
 //   }
 // })
 

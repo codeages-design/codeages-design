@@ -141,7 +141,7 @@ function upload(props) {
   return new Upload(props);
 }
 
-// HOW TO USE
+// HOW TO USE 
 // cd.upload({
 //   el: '',
 //   type: 'normal',

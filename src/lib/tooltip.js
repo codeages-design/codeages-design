@@ -15,6 +15,13 @@ class Tooltip {
       title: 'Plase add title',
       type: 'tooltip'
     }, props);
+
+    if (typeof Tooltip.instance === 'object' && this.el == Tooltip.element) {
+      return Tooltip.instance;
+    }
+
+    Tooltip.instance = this;
+    Tooltip.element = this.el;
    
     this.init();
   }

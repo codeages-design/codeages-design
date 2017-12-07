@@ -1,12 +1,14 @@
 class Btn {
   constructor(props) {
-    Object.assign(this, {
+    this.options = {
       text: 'loading...'
-    }, props);
+    };
 
-    this.$el = $(this.el);
+    Object.assign(this.options, props);
+
+    this.$el = $(this.options.el);
     this.oldText = this.$el.html();
-    this.text = this.$el.data('loadingText') || this.text;
+    this.text = this.$el.data('loadingText') || this.options.text;
   }
 
   loading() {

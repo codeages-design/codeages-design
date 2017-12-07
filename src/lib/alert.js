@@ -1,8 +1,10 @@
 class Alert {
   constructor(props) {
-    Object.assign(this, {
+    this.options = {
       parent: document,
-    }, props);
+    };
+
+    Object.assign(this.options, props);
 
     this.init();
   }
@@ -12,7 +14,7 @@ class Alert {
   }
 
   events() {
-    $(this.parent).on('click.cd.alert.close', this.closeEl, (event) => this.closeEvent(event));
+    $(this.options.parent).on('click.cd.alert.close', this.options.closeEl, (event) => this.closeEvent(event));
   }
 
   closeEvent(event) {
@@ -24,11 +26,9 @@ class Alert {
       $parent.remove();
     }, 300);
 
-    this.close(event);
-  }
-
-  close(event) {
-    
+    if (typeof this.options.close === 'function') {
+      this.options.close(event);
+    }
   }
 }
 

@@ -1,9 +1,12 @@
 class Radio {
   constructor(props, callback) {
-    Object.assign(this, {
+    this.options = {
       parent: document,
-      callback
-    }, props);
+    };
+
+    Object.assign(this.options, props);
+
+    this.callback = callback;
 
     this.init();
   }
@@ -13,7 +16,7 @@ class Radio {
   }
 
   events() {
-    $(this.parent).on('click.cd.radio', this.el, event => this.clickEvent(event));
+    $(this.options.parent).on('click.cd.radio', this.options.el, event => this.clickEvent(event));
   }
 
   clickEvent(event) {
@@ -22,14 +25,10 @@ class Radio {
 
     $this.parent().addClass('checked')
          .siblings().removeClass('checked');
-         
-    this.cb(event);
-    this.callback && this.callback(event);
-  }
 
-  // @todo 废弃，请使用callback代替
-  cb() {
-
+    if (typeof this.callback == 'function') {
+      this.callback(event);
+    }
   }
 }
 

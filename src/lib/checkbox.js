@@ -1,9 +1,12 @@
 class Checkbox {
   constructor(props, callback) {
-    Object.assign(this, {
+    this.options = {
       parent: document,
-      callback
-    }, props);
+    };
+
+    Object.assign(this.options, props);
+
+    this.callback = callback;
 
     this.init();
   }
@@ -13,7 +16,7 @@ class Checkbox {
   }
 
   events() {
-    $(this.parent).on('click.cd.checkbox', this.el, event => this.clickEvent(event));
+    $(this.options.parent).on('click.cd.checkbox', this.options.el, event => this.clickEvent(event));
   }
 
   clickEvent(event) {
@@ -25,8 +28,10 @@ class Checkbox {
     } else {
       $this.parent().addClass('checked');
     }
-         
-    this.callback && this.callback(event);
+    
+    if (typeof this.callback === 'function') {
+      this.callback(event);
+    }
   }
 }
 

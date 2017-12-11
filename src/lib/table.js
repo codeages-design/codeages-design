@@ -1,21 +1,56 @@
 class Table {
   constructor(props) {
-    Object.assign(this, {
-      filterEl: '[data-toggle="table-filter"]',
-      sortEl: '[data-toggle="table-sort"]',
-      parent: document
-    }, props);
+    this.options = {
+      filterEl: '[data-toggle="cd-table-filter"]',
+      sortEl: '[data-toggle="cd-table-sort"]',
+      parent: document,
+      target: null,
+      url: null,
+      data: {},
+      isLoading: false,
+    };
+
+    Object.assign(this.options, props);
     
     this.init();
   }
 
   init() {
+    this.getData();
     this.events();
   }
 
   events() {
-    $(this.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterEvent(event));
-    $(this.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortEvent(event));
+    $(this.options.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterEvent(event));
+    $(this.options.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortEvent(event));
+  }
+
+  loading() {
+    if (this.options.isLoading) {
+      $(this.options.target).html(cd.loading());
+    }
+  }
+
+  getData() {
+    this.loading();
+
+    $.get({
+      url: this.options.url,
+      data: this.options.data,
+    }).done((res) => {
+      console.log(res);
+      $(this.options.target).html(res);
+      
+      if (typeof this.options.cuccess === 'function') {
+        this.options.cuccess(res);
+      }
+      
+    }).fail((res) => {
+      console.log('fail', res);
+      if (typeof this.options.error === 'function') {
+        this.options.error(res);
+      }
+    });
   }
 
   filterEvent(event) {
@@ -25,29 +60,18 @@ class Table {
       return;
     }
   
-    let $target = $($this.data('target'));
-    let url = $target.data('url');
-  
-    let filterStr = $this.data('filter');
-    $target.data('filter', filterStr);
-  
-    if (filterStr) {
-      url = `${url}?${filterStr}`;
-    }
-  
-    let sortStr = $target.data('sort');
-    if (sortStr) {
-      url = `${url}&${sortStr}`;
-    }
-  
-    this.cb($target, url);
+    let filterKey = $this.data('filter-key');
+    let filterValue = $this.data('filter-value');
+
+    this.options.data.filter = {};
+    this.options.data.filter.name = filterKey;
+    this.options.data.filter.value = filterValue;
+
+    this.getData();
   }
 
   sortEvent(event) {
     let $this = $(event.currentTarget);
-
-    let $target = $($this.data('target'));
-    let url = $target.data('url');
 
     let sortKey = $this.data('sort-key');
     let sortValue = 'desc';
@@ -56,21 +80,12 @@ class Table {
     if ($sortIcon.length) {
       sortValue = $sortIcon.siblings().data('sort-value');
     }
+
+    this.options.data.sort = {};
+    this.options.data.sort.name = sortKey;
+    this.options.data.sort.value = sortValue;
     
-    let sortStr = `${sortKey}=${sortValue}`;
-    $target.data('sort', sortStr);
-    url = `${url}?${sortStr}`;
-
-    let filterStr = $target.data('filter');
-    if (filterStr) {
-      url = `${url}&${filterStr}`;
-    }
-  
-    this.cb($target, url);
-  }
-
-  cb() {
-
+    this.getData();
   }
 }
 

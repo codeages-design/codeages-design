@@ -52,6 +52,12 @@
   &[disabled] {
     opacity: 0.32;
     cursor: not-allowed;
+    &:hover:before {
+      border-color: @cd-gray-light;
+    }
+    &.checked:hover:before {
+      border-color: @brand-primary;
+    }
   }
   > input {
     display: none;

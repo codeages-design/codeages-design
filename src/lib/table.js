@@ -39,10 +39,10 @@ class Table {
       data: this.options.data,
     }).done((res) => {
       console.log(res);
-      $(this.options.target).html(res);
-      
       if (typeof this.options.cuccess === 'function') {
         this.options.cuccess(res);
+      } else {
+        $(this.options.target).html(res);
       }
       
     }).fail((res) => {

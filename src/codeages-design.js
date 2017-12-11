@@ -5,6 +5,7 @@ import onoff from './lib/switch';
 import loading from './lib/loading';
 import upload from './lib/upload';
 import table from './lib/table';
+import tabs from './lib/tabs';
 import alert from './lib/alert';
 import tag from './lib/tag';
 import confirm from './lib/confirm';
@@ -19,6 +20,7 @@ export {
   loading,
   upload,
   table,
+  tabs,
   alert,
   tag,
   confirm,

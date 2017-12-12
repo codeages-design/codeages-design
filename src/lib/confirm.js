@@ -74,7 +74,7 @@ class Confirm {
 
     let modalBody = `
       <div class="modal-body">
-        <div class="cd-pb24 cd-text-gray-dark">
+        <div class="cd-pb24 cd-dark-major">
           ${this.options.content}
         </div>
       </div>

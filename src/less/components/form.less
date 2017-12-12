@@ -11,7 +11,7 @@
   padding: 5px 0 4px 0;
   line-height: 20px;
   height: 30px;
-  color: @cd-gray-dark;
+  color: @cd-dark-major;
   // fix: ios没有下投影的问题
   -webkit-appearance: none;
   appearance: none;
@@ -39,21 +39,21 @@
   &[disabled], 
   &[readonly] {
     background: none;
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
     cursor: not-allowed;
     border-bottom-style: dotted;
   }
   &::-webkit-input-placeholder {
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
   }
   &:-moz-placeholder {
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
   }
   &::-moz-placeholder {
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
   }
   &:-ms-input-placeholder {
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
   }
 }
 
@@ -127,18 +127,18 @@ textarea.cd-form-control {
     font-size: 12px;
     line-height: 20px;
     margin-top: 0;
-    color: @cd-gray-light;
+    color: @cd-dark-assist;
   }
   > label {
     font-weight: 400;
-    color: @cd-gray;
+    color: @cd-dark-minor;
     line-height: 1;
     margin-bottom: 0;
     font-size: 12px;
     display: block;
     &.readonly,
     &.disabled {
-      color: @cd-gray-light;
+      color: @cd-dark-assist;
     }
     &.required {
       &:after {
@@ -170,7 +170,7 @@ textarea.cd-form-control {
     border: none;
     background: none;
     padding: 0;
-    color: @cd-gray;
+    color: @cd-dark-minor;
     > i {
       font-size: 14px;
     }
@@ -190,7 +190,7 @@ textarea.cd-form-control {
   .static-text {
     margin-top: 8px;
     line-height: 1;
-    color: @cd-gray-dark;
+    color: @cd-dark-major;
     i {
       font-size: 12px;
     }

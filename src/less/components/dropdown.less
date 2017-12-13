@@ -1,3 +1,4 @@
+// @todo 待删
 .dropdown-menu.cd-dropdown-menu {
   border: none;
   .cd-box-shadow(8px);
@@ -22,18 +23,54 @@
       }
     }
   }
-  > li {
-    position: relative;
-  }
-  > li > a {
-    padding: 10px 16px;
-    line-height: 1;
-    color: @cd-dark-major;
-    background: none;
-    &:hover {
-      color: @cd-dark-major;
-      background-color: @cd-bg-light;
+}
+
+.cd-dropdown {
+  position: relative;
+  display: inline-block;
+  &.cd-in {
+    .dropdown-menu {
+      display: block;
     }
   }
-  
+  &.cd-dropdown-right {
+    .dropdown-menu {
+      left: auto;
+      right: 0;
+    }
+  }
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    border: none;
+    text-align: left;
+    min-width: 80px;
+    padding: 5px 0;
+    margin: 0;
+    .cd-box-shadow(8px);
+    .cd-border-radius(4px);
+    min-width: 80px;
+    font-size: 12px;
+    background-color: #fff;
+    > li {
+      position: relative;
+      list-style: none;
+      
+    }
+    > li > a {
+      padding: 10px 16px;
+      line-height: 1;
+      color: @cd-dark-major;
+      background: none;
+      white-space: nowrap;
+      display: block;
+      &:hover {
+        color: @cd-dark-major;
+        background-color: @cd-bg-light;
+      }
+    }
+  }
 }

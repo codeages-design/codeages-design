@@ -11,6 +11,7 @@ import tag from './lib/tag';
 import confirm from './lib/confirm';
 import message from './lib/message';
 import tooltip from './lib/tooltip';
+import dropdown from './lib/dropdown';
 
 export {
   btn,
@@ -25,5 +26,6 @@ export {
   tag,
   confirm,
   message,
-  tooltip
+  tooltip,
+  dropdown
 };

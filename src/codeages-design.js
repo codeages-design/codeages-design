@@ -12,6 +12,7 @@ import confirm from './lib/confirm';
 import message from './lib/message';
 import tooltip from './lib/tooltip';
 import dropdown from './lib/dropdown';
+import select from './lib/select';
 
 export {
   btn,
@@ -27,5 +28,6 @@ export {
   confirm,
   message,
   tooltip,
-  dropdown
+  dropdown,
+  select
 };

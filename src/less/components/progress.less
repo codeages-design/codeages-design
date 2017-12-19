@@ -1,3 +1,13 @@
+@-webkit-keyframes progress-inner {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
+}
+
+@-moz-keyframes progress-inner {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
+}
+
 .cd-progress {
   position: relative;
   margin-bottom: 24px;
@@ -11,33 +21,13 @@
       height: 12px;
     }
   }
-  &.cd-progress-success {
-    .progress-inner {
-      background-color: @brand-success;
-    }
-  }
-  &.cd-progress-info {
-    .progress-inner {
-      background-color: @brand-info;
-    }
-  }
-  &.cd-progress-danger {
-    .progress-inner {
-      background-color: @brand-danger;
-    }
-  }
-  &.cd-progress-warning {
-    .progress-inner {
-      background-color: @brand-warning;
-    }
-  }
   .progress-bar {
     box-sizing: border-box;
     display: inline-block;
     width: 100%;
     padding-right: 40px;
     margin-right: -40px;
-  }
+  }  
   .progress-outer {
     width: 100%;
     display: inline-block;
@@ -47,16 +37,24 @@
   .progress-inner {
     width: 0%;
     height: 8px;
+    background: @brand-primary;
     font-size: 12px;
     line-height: 20px;
     color: #fff;
     text-align: center;
     .cd-border-radius(6px);
-    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
-    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
     -webkit-transition: width 0.6s ease;
     -o-transition: width 0.6s ease;
     transition: width 0.6s ease;
+    background-image: -webkit-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: -o-linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    background-image: linear-gradient(-45deg,rgba(255,255,255,.15) 25%,transparent 25%,transparent 50%,rgba(255,255,255,.15) 50%,rgba(255,255,255,.15) 75%,transparent 75%,transparent);
+    -webkit-background-size: 20px 20px;
+    &.active {
+      -webkit-animation: progress-inner 2s linear infinite;
+      -o-animation: progress-inner 2s linear infinite;
+      animation: progress-inner 2s linear infinite;
+    }
   }
   .progress-text {
     display: inline-block;
@@ -67,5 +65,17 @@
     font-size: 12px;
     line-height: 1;
     color: @cd-dark-minor;
+  }
+  &.cd-progress-success {
+    .progress-inner {
+      background-color: @brand-success;
+      background-image: none;
+    }
+  }
+  &.cd-progress-danger {
+    .progress-inner {
+      background-color: @brand-danger;
+      background-image: none;
+    }
   }
 }

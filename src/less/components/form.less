@@ -5,7 +5,7 @@
   background-color: #fff;
   background-image: none;
   border: none;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  border-bottom: 1px solid rgba(0,0,0,0.16);
   // .cd-box-shadow-general(inset 0 -1px 0 0 rgba(0,0,0,0.08));
   border-radius: 0;
   padding: 5px 0 4px 0;
@@ -15,7 +15,16 @@
   // fix: ios没有下投影的问题
   -webkit-appearance: none;
   appearance: none;
+  .cd-transition;
+  &:hover {
+    .cd-transition;
+    opacity: .8;
+    padding-bottom: 3px;
+    border-bottom: 2px solid rgba(0,0,0,0.16);
+  }
   &:focus {
+    .cd-transition;
+    opacity: 1;
     outline: 0;
     padding-bottom: 3px;
     border-bottom: 2px solid rgba(0,0,0,0.32);
@@ -24,16 +33,36 @@
     height: 28px;
     padding: 4px 0 3px 0;
     font-size: 12px;
-    &:focus {
+    &:hover {
+    .cd-transition;
+      opacity: .8;
       padding-bottom: 2px;
+      border-bottom: 2px solid rgba(0,0,0,0.16);
+    }
+    &:focus {
+      .cd-transition;
+      opacity: 1;
+      outline: 0;
+      padding-bottom: 2px;
+      border-bottom: 2px solid rgba(0,0,0,0.32);
     }
   }
   &-lg {
     height: 40px;
     padding: 10px 0 9px 0;
     font-size: 14px;
-    &:focus {
+    &:hover {
+    .cd-transition;
+      opacity: .8;
       padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0,0,0,0.16);
+    }
+    &:focus {
+      .cd-transition;
+      opacity: 1;
+      outline: 0;
+      padding-bottom: 8px;
+      border-bottom: 2px solid rgba(0,0,0,0.32);
     }
   }
   &[disabled], 
@@ -41,7 +70,10 @@
     background: none;
     color: @cd-dark-assist;
     cursor: not-allowed;
-    border-bottom-style: dotted;
+    border-bottom: 1px dashed rgba(0,0,0,0.08);
+    &:hover {
+      opacity: 1;
+    }
   }
   &::-webkit-input-placeholder {
     color: @cd-dark-assist;
@@ -61,12 +93,22 @@
   padding: 8px;
   margin-top: 8px;
   height: auto;
-  border: 1px solid rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.16);
   border-radius: 4px;
+  resize: none;
+  .cd-transition;
   .cd-box-shadow-general(none);
+  &:hover {
+    opacity: .8;
+    padding: 7px;
+    border: 2px solid rgba(0,0,0,0.16);
+    .cd-transition;
+  }
   &:focus {
+    opacity: 1;
     padding: 7px;
     border: 2px solid rgba(0,0,0,0.32);
+    .cd-transition;
     .cd-box-shadow-general(none);
   }
 }

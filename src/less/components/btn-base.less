@@ -4,16 +4,14 @@
   .cd-transition;
   &:hover,
   &:focus {
-    // color: #fff;
-    // background: @color;
-    background: rgba(red(@color), green(@color), blue(@color), 0.1);
     .cd-transition;
-    .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.30));
+    opacity: .8;
+    transform: translateY(-1px);
+    .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.3));
   }
   &:active {
     .cd-transition;
-    border-color: darken(@color, 5%);
-    background: darken(@color, 5%);
+    background: rgba(red(@color), green(@color), blue(@color), 0.1);
   }
 }
 
@@ -23,11 +21,15 @@
   &:hover,
   &:focus {
     .cd-transition;
+    opacity: .8;
     background: rgba(red(@color), green(@color), blue(@color), 0.1);
   }
   &:active {
     .cd-transition;
     background: rgba(red(@color), green(@color), blue(@color), 0.2);
+  }
+  &[disabled] {
+    background: none;
   }
 }
 
@@ -39,7 +41,9 @@
   &:hover,
   &:focus {
     .cd-transition;
-    .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.30));
+    opacity: .8;
+    transform: translateY(-1px);
+    .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.3));
   }
   &:active {
     .cd-transition;

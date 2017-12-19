@@ -30,10 +30,14 @@
     padding: 12px 18px;
     border-radius: 4px;
   }
-  &.disabled, 
   &[disabled] {
-    opacity: 0.32;
+    opacity: 0.4;
     cursor: not-allowed;
+    &&:hover {
+      opacity: 0.4;
+      transform: translateY(0px);
+      box-shadow: none;
+    }
   }
 }
 
@@ -57,6 +61,16 @@ a.cd-btn.disabled {
   &.cd-btn-ghost-warning {
     .cd-btn-ghost(@brand-warning);
   }
+  &.cd-btn-ghost-light {
+    border-color: #fff;
+    color: #fff;
+    .cd-transition;
+    &:hover,
+    &:focus {
+      background: rgba(255, 255, 255, 0.2);
+      .cd-transition;
+    }
+  }
   &.cd-btn-ghost-default {
     background: #fff;
     border-color: rgba(0,0,0,0.16);
@@ -66,6 +80,8 @@ a.cd-btn.disabled {
     &:focus {
       .cd-box-shadow(6px);
       .cd-transition;
+      opacity: .8;
+      transform: translateY(-1px);
       background: rgba(red(#fff), green(#fff), blue(#fff), 0.1);
     }
     &:active {
@@ -99,17 +115,7 @@ a.cd-btn.disabled {
   }
   &.cd-btn-link-default,
   &.cd-btn-flat-default {
-    color: @cd-dark-major;
-    .cd-transition;
-    &:hover,
-    &:focus {
-      background: @cd-bg;
-      .cd-transition;
-    }
-    &:active {
-      background: @cd-bg-dark;
-      .cd-transition;
-    }
+    .cd-btn-link(@cd-dark-major);
   }
 }
 
@@ -130,6 +136,6 @@ a.cd-btn.disabled {
     .cd-btn-raised(@brand-warning);
   }
   &.cd-btn-default {
-    .cd-btn-raised(#eee, @cd-dark-major);
+    .cd-btn-raised(#ececec, @cd-dark-major);
   }
 }

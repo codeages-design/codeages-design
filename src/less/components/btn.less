@@ -62,12 +62,18 @@ a.cd-btn.disabled {
     .cd-btn-ghost(@brand-warning);
   }
   &.cd-btn-ghost-light {
-    border-color: #fff;
-    color: #fff;
+    border-color: rgba(255, 255, 255, 1);
+    color: rgba(255, 255, 255, 1);
     .cd-transition;
     &:hover,
     &:focus {
       background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-1px);
+      .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.3));
+      .cd-transition;
+    }
+    &:active {
+      background: rgba(255, 255, 255, 0.1);
       .cd-transition;
     }
   }

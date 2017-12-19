@@ -4,14 +4,15 @@
   .cd-transition;
   &:hover,
   &:focus {
-    .cd-transition;
     opacity: .8;
     transform: translateY(-1px);
+    background: rgba(red(@color), green(@color), blue(@color), 0.1);
     .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.3));
+    .cd-transition;
   }
   &:active {
     .cd-transition;
-    background: rgba(red(@color), green(@color), blue(@color), 0.1);
+    background: rgba(red(@color), green(@color), blue(@color), 0.2);
   }
 }
 

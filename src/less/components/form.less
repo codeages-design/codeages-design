@@ -18,7 +18,7 @@
   .cd-transition;
   &:hover {
     .cd-transition;
-    opacity: .8;
+    .cd-hover-light;
     padding-bottom: 3px;
     border-bottom: 2px solid rgba(0,0,0,0.16);
   }
@@ -35,7 +35,7 @@
     font-size: 12px;
     &:hover {
     .cd-transition;
-      opacity: .8;
+      .cd-hover-light;
       padding-bottom: 2px;
       border-bottom: 2px solid rgba(0,0,0,0.16);
     }
@@ -53,7 +53,7 @@
     font-size: 14px;
     &:hover {
     .cd-transition;
-      opacity: .8;
+      .cd-hover-light;
       padding-bottom: 8px;
       border-bottom: 2px solid rgba(0,0,0,0.16);
     }
@@ -70,9 +70,10 @@
     background: none;
     color: @cd-dark-assist;
     cursor: not-allowed;
-    border-bottom: 1px dashed rgba(0,0,0,0.08);
+    opacity: .56;
+    border-bottom: 1px dashed rgba(0,0,0,0.16);
     &:hover {
-      opacity: 1;
+      opacity: .56;
     }
   }
   &::-webkit-input-placeholder {
@@ -99,7 +100,7 @@
   .cd-transition;
   .cd-box-shadow-general(none);
   &:hover {
-    opacity: .8;
+    .cd-hover-light;
     padding: 7px;
     border: 2px solid rgba(0,0,0,0.16);
     .cd-transition;
@@ -209,12 +210,21 @@ textarea.cd-form-control {
     position: absolute;
     top: 7px;
     right: 0;
+    width: 14px;
+    height: 14px;
     border: none;
     background: none;
     padding: 0;
     color: @cd-dark-minor;
+    outline: none;
+    .cd-transition;
     > i {
       font-size: 14px;
+    }
+    &:hover {
+      cursor: pointer;
+      .cd-hover-light;
+      .cd-transition;
     }
   }
 }

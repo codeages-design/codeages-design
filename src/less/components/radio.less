@@ -1,3 +1,13 @@
+@-webkit-keyframes radio-dot {
+  from { transform: scale(1.4); }
+  to   { transform: scale(1); }
+}
+
+@-moz-keyframes radio-dot {
+  from { transform: scale(1.4); }
+  to   { transform: scale(1); }
+}
+
 .cd-radio-group {
   padding-top: 11px;
   .cd-radio {
@@ -16,10 +26,13 @@
   line-height: 1;
   display: block;
   margin-bottom: 0;
+  .cd-transition;
   &:hover {
     cursor: pointer;
     &:before {
-      border-color: @brand-primary;
+      border-color: #bdbdbd;
+      opacity: 1;
+      .cd-transition;
     }
   }
   &:before {
@@ -47,6 +60,9 @@
     background: white;
     border-radius: 50%;
     display: inline-block;
+    .cd-box-shadow(2px, .08, .16);
+    animation-name: radio-dot;
+    animation-duration: .2s;
   }
   &.disabled,
   &[disabled] {

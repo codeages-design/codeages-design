@@ -1,18 +1,17 @@
 .cd-btn-ghost(@color) {
-  border-color: @color;
   color: @color;
+  border-color: fade(@color, 70%);
   .cd-transition;
   &:hover,
   &:focus {
-    .cd-hover-light;
+    border-color: @color;
     transform: translateY(-1px);
-    background: rgba(red(@color), green(@color), blue(@color), 0.1);
     .cd-box-shadow-general(0 6px 6px 0 rgba(red(@color), green(@color), blue(@color), 0.3));
     .cd-transition;
   }
   &:active {
     .cd-transition;
-    background: rgba(red(@color), green(@color), blue(@color), 0.2);
+    background: rgba(red(@color), green(@color), blue(@color), 0.1);
   }
 }
 
@@ -22,7 +21,6 @@
   &:hover,
   &:focus {
     .cd-transition;
-    .cd-hover-light;
     background: rgba(red(@color), green(@color), blue(@color), 0.1);
   }
   &:active {
@@ -48,7 +46,7 @@
   }
   &:active {
     .cd-transition;
-    border-color: darken(@color, 5%);
-    background: darken(@color, 5%);
+    border-color: darken(@color, 4%);
+    background: darken(@color, 4%);
   }
 }

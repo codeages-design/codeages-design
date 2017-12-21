@@ -9,9 +9,8 @@
 }
 
 .cd-radio-group {
-  padding-top: 11px;
+  margin-bottom: 16px;
   .cd-radio {
-    display: inline-block;
     + .cd-radio {
       margin-left: 40px;
     }
@@ -24,14 +23,13 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 1;
-  display: block;
+  display: inline-block;
   margin-bottom: 0;
   .cd-transition;
   &:hover {
     cursor: pointer;
     &:before {
-      border-color: #bdbdbd;
-      opacity: 1;
+      border-color: fade(@cd-bg-normal, 30%);
       .cd-transition;
     }
   }
@@ -40,7 +38,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid @cd-dark-assist;
+    border: 1px solid @cd-bg-normal;
     border-radius: 50%;
     width: 14px;
     height: 14px;
@@ -60,19 +58,19 @@
     background: white;
     border-radius: 50%;
     display: inline-block;
-    .cd-box-shadow(2px, .08, .16);
     animation-name: radio-dot;
     animation-duration: .2s;
   }
   &.disabled,
   &[disabled] {
-    opacity: 0.32;
     cursor: not-allowed;
-    &:hover:before {
-      border-color: @cd-dark-assist;
+    color: @cd-dark-assist;
+    &:before {
+      border-color: @cd-bg-disabeld;
     }
-    &.checked:hover:before {
-      border-color: @brand-primary;
+    &.checked:before {
+      background: @cd-bg-disabeld;
+      border: none;
     }
   }
   &-sm {

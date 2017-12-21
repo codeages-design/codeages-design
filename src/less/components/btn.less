@@ -37,6 +37,7 @@
       opacity: 0.4;
       transform: translateY(0px);
       box-shadow: none;
+      border-color: none;
     }
   }
 }
@@ -62,12 +63,12 @@ a.cd-btn.disabled {
     .cd-btn-ghost(@brand-warning);
   }
   &.cd-btn-ghost-light {
-    border-color: rgba(255, 255, 255, 1);
     color: rgba(255, 255, 255, 1);
+    border-color: rgba(255, 255, 255, .7);
     .cd-transition;
     &:hover,
     &:focus {
-      background: rgba(255, 255, 255, 0.2);
+      border-color: rgba(255, 255, 255, 1);
       transform: translateY(-1px);
       .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.3));
       .cd-transition;
@@ -79,20 +80,23 @@ a.cd-btn.disabled {
   }
   &.cd-btn-ghost-default {
     background: #fff;
-    border-color: rgba(0,0,0,0.16);
+    border-color: fade(@cd-dark-major, 30%);
     color: @cd-dark-major;
     .cd-transition;
     &:hover,
     &:focus {
-      .cd-box-shadow(6px);
+      border-color: @cd-dark-major;
       .cd-transition;
-      .cd-hover-light;
       transform: translateY(-1px);
       background: rgba(red(#fff), green(#fff), blue(#fff), 0.1);
+      .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.2));
     }
     &:active {
       background: @cd-bg;
       .cd-transition;
+    }
+    &[disabled] {
+      border-color: fade(@cd-dark-major, 30%);
     }
   }
 }
@@ -142,6 +146,21 @@ a.cd-btn.disabled {
     .cd-btn-raised(@brand-warning);
   }
   &.cd-btn-default {
-    .cd-btn-raised(#ececec, @cd-dark-major);
+    color: @cd-dark-major;
+    background: #ececec;
+    border-color: #ececec;
+    .cd-transition;
+    &:hover,
+    &:focus {
+      .cd-transition;
+      .cd-hover-light;
+      transform: translateY(-1px);
+      .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.2));
+    }
+    &:active {
+      .cd-transition;
+      border-color: darken(#ececec, 4%);
+      background: darken(#ececec, 4%);
+    }
   }
 }

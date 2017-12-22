@@ -1,3 +1,14 @@
+@-webkit-keyframes tabs-line {
+  from { width: 0%; left: 50%;}
+  to   { width: 100%; left: 0;}
+}
+
+/*@-moz-keyframes tabs-line {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 0; }
+}*/
+
+
 .cd-tabs {
   padding-left: 0;
   .cd-clearfix;
@@ -14,18 +25,42 @@
       .cd-transition;
       display: block;
       padding-bottom: 16px;
-      border-bottom: 2px solid transparent;
+      position: relative;
       font-weight: 500;
       font-size: 14px;
       &:hover {
         .cd-transition;
-        color: @cd-dark-major;
+        .cd-hover-light;
+      }
+      &:before {
+        display: block;
+        content: '';
+        background: transparent;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
       }
     }
     &.active {
       > a {
         color: @cd-dark-major;
-        border-color: @brand-primary;
+        &:before {
+          display: block;
+          content: '';
+          background: @brand-primary;
+          width: 100%;
+          height: 2px;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          animation-name: tabs-line;
+          animation-duration: .25s;
+        }
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }

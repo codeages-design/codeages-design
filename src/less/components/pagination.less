@@ -15,6 +15,8 @@
   &.active > a, 
   &.active > a:hover, 
   &.active > a:focus {
+    opacity: 1;
+    transform: translateY(0);
     background-color: @brand-primary;
     border-color: @brand-primary;
     color: #fff;
@@ -24,24 +26,24 @@
 }
 
 .cd-pagination-li-a() {
+  color: @cd-dark-major;
+  background: #ececec;
+  border-color: #ececec;
   position: relative;
   float: left;
-  border: 2px solid rgba(0,0,0,0.16);
-  padding: 2px 2px;
   margin: 4px;
-  background-color: #fff;
-  color: @cd-dark-major;
-  width: 28px;
-  font-size: 12px;
-  line-height: 20px;
+  min-width: 34px;
+  font-size: 14px;
+  line-height: 34px;
   text-align: center;
   text-decoration: none;
   border-radius: 4px;
   .cd-transition;
   &:hover {
-    border-color: @brand-primary;
-    color: @brand-primary;
-    .cd-box-shadow(6px);
+    .cd-transition;
+    .cd-hover-light;
+    transform: translateY(-1px);
+    .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.2));
   }
   > i {
     font-size: 14px;

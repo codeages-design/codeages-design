@@ -1,8 +1,9 @@
 .cd-link-base(@color) {
   color: @color;
   .cd-transition;
+  font-size: 14px;
   &:hover {
-    color: @brand-primary;
+    .cd-hover-light;
     .cd-transition;
   }
 }
@@ -22,8 +23,9 @@
 .cd-link-primary {
   color: @brand-primary;
   .cd-transition;
+  font-size: 14px;
   &:hover {
-    opacity: .5;
+    .cd-hover-light;
     .cd-transition;
   }
 }

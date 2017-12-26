@@ -28,7 +28,7 @@ class Message {
 
   init() {
     this.template();
-    setTimeout(() => this.close(), this.options.delay);
+    this.timeout = setTimeout(() => this.close(), this.options.delay);
   }
 
   template() {
@@ -58,6 +58,8 @@ class Message {
     });
 
     this.$message.html(html).appendTo(this.$body);
+
+    clearInterval(this.timeout);
   }
 
   close() {

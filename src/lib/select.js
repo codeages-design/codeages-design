@@ -111,7 +111,7 @@ class Select {
   initOption() {
     let self = this;
 
-    if (this.options.type !== 'multi') {
+    if (this.options.type === 'single') {
       return;
     }
 

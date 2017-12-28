@@ -1,4 +1,4 @@
-import { getPosition, uuid } from '../utils';
+import { getPosition, getUUID } from '../utils';
 
 const TRANSITION_DURATION = 300;
 
@@ -53,7 +53,7 @@ class Tooltip {
 
     this.$template = $(document.createElement('div'))
                       .addClass('cd-tooltip')
-                      .attr('id', this.getUID(this.options.type))
+                      .attr('id', getUUID(this.options.type))
                       .html(this.options.title);
 
     this.options.container ? this.$template.appendTo(this.options.container) : this.$template.insertAfter($this);
@@ -71,12 +71,6 @@ class Tooltip {
     this.timeout = setTimeout(() => {
       this.$template.addClass('cd-in');
     }, TRANSITION_DURATION + this.options.delay);
-  }
-
-  getUID(prefix) {
-    do prefix += ~~(Math.random() * 1000000)
-    while (document.getElementById(prefix));
-    return prefix;
   }
 
   checkPlacement(position, width, height) {

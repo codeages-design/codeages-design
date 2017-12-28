@@ -26,8 +26,8 @@ class Tag {
       $parent.remove();
     }, 300);
 
-    if (typeof this.option.close == 'function') {
-      this.option.close(event);
+    if (typeof this.options.close == 'function') {
+      this.options.close(event);
     }
   }
 }

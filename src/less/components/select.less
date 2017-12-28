@@ -96,10 +96,14 @@
 }
 
 .cd-select.cd-select-multi {
+  .cd-tag {
+    position: relative;
+    z-index: 1;
+  }
+  .cd-tag + .cd-tag {
+    margin-left: 8px;
+  }
   .select-value {
-    &:after {
-      display: none;
-    }
     &:hover {
       cursor: text;
     }
@@ -125,6 +129,9 @@
         opacity: 0;
         color: @cd-dark-assist;
         .cd-transition;
+      }
+      &.checked {
+        background: none;
       }
       &.checked:after {
         opacity: 1;

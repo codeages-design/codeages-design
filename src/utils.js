@@ -9,3 +9,9 @@ export const getPosition = (el) => {
 
   return $.extend({}, elRect, scroll, outerDims, elOffset);
 }
+
+export const getUUID = (prefix) => {
+  do prefix += ~~(Math.random() * 1000000)
+  while (document.getElementById(prefix));
+  return prefix;
+}

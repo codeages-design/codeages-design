@@ -13,6 +13,7 @@ import message from './lib/message';
 import tooltip from './lib/tooltip';
 import dropdown from './lib/dropdown';
 import select from './lib/select';
+import modal from './lib/modal';
 
 export {
   btn,
@@ -29,5 +30,6 @@ export {
   message,
   tooltip,
   dropdown,
-  select
+  select,
+  modal
 };

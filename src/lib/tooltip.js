@@ -1,4 +1,4 @@
-import { getPosition, getUUID } from '../utils';
+import { getPosition, getUUID } from '../js/utils';
 
 const TRANSITION_DURATION = 300;
 

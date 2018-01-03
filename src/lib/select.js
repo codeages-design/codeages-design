@@ -1,4 +1,4 @@
-import { getUUID } from '../utils';
+import { getUUID } from '../js/utils';
 
 class Select {
   constructor(props) {

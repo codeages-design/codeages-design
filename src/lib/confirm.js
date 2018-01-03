@@ -8,14 +8,14 @@ class Confirm {
       content: '',
       okText: 'Confirm',
       cancelText: 'Cancel',
-      confirmClass: '',
+      customClass: '',
     };
 
     Object.assign(this.options, props);
 
+    this.$modal = null;
     this.$backdrop =  null;
     this.$body = $(document.body);
-    this.$modal = null;
 
     this.init();
   }
@@ -55,7 +55,7 @@ class Confirm {
     }
   }
 
-  rmConfirm(event) {
+  rmConfirm() {
     this.$modal.removeClass('cd-in');
     
     setTimeout(() => {
@@ -92,7 +92,7 @@ class Confirm {
     `;
 
     return `
-      <div class="cd-modal ${this.options.confirmClass} cd-fade" style="display:block">
+      <div class="cd-modal ${this.options.customClass} cd-fade" style="display:block">
         <div class="cd-modal-dialog cd-modal-dialog-sm">
           <div class="modal-content">
             ${modalHeader}
@@ -110,7 +110,7 @@ class Confirm {
   }
 
   addDrop() {
-    this.$backdrop = $(document.createElement('dev'))
+    this.$backdrop = $(document.createElement('div'))
                       .addClass('cd-modal-backdrop cd-fade')
                       .appendTo(this.$body);
 

@@ -14,6 +14,7 @@ import tooltip from './lib/tooltip';
 import dropdown from './lib/dropdown';
 import select from './lib/select';
 import modal from './lib/modal';
+import rate from './lib/rate';
 
 export {
   btn,
@@ -31,5 +32,6 @@ export {
   tooltip,
   dropdown,
   select,
-  modal
+  modal,
+  rate
 };

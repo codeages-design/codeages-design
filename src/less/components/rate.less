@@ -1,0 +1,25 @@
+.cd-rate {
+  display: inline-block;
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+  .cd-clearfix;
+  &.cd-rate-static {
+    .rate-star {
+      cursor: not-allowed;
+    }
+  }
+  .rate-star {
+    float: left;
+    cursor: pointer;
+    i {
+      font-size: 20px;
+      color: @cd-dark-assist;
+    }
+    &.rate-star-full {
+      i {
+        color: @brand-warning;
+      }
+    }
+  }
+}

@@ -1,3 +1,5 @@
-node_modules
-src/js
-!src/js/utils.js
+/node_modules
+/src/js/component.js
+/src/js/dom.js
+/src/js/event.js
+/src/js/guid.js

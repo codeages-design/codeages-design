@@ -1,0 +1,31 @@
+.cd-breadcrumb {
+  margin: 12px auto;
+  padding: 8px;
+  font-size: 14px;
+  list-style: none;
+  background-color: @cd-bg;
+  .cd-border-radius(4px);
+  &.cd-breadcrumb-o {
+    padding: 8px 0;
+    background: none;
+  }
+  > li {
+    display: inline-block;
+    &.active {
+      color: @cd-dark-assist;
+    }
+    + li:before {
+      content: "/\A0";
+      padding: 0 5px;
+      color: @cd-dark-assist;
+    }
+  }
+  a {
+    color: @cd-dark-minor;
+    .cd-transition;
+    &:hover {
+      color: @cd-dark-major;
+      .cd-transition;
+    }
+  }
+}

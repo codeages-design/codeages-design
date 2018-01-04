@@ -8,7 +8,7 @@ class Confirm {
       content: '',
       okText: 'Confirm',
       cancelText: 'Cancel',
-      customClass: '',
+      className: '',
     };
 
     Object.assign(this.options, props);
@@ -92,7 +92,7 @@ class Confirm {
     `;
 
     return `
-      <div class="cd-modal ${this.options.customClass} cd-fade" style="display:block">
+      <div class="cd-modal ${this.options.className} cd-fade" style="display:block">
         <div class="cd-modal-dialog cd-modal-dialog-sm">
           <div class="modal-content">
             ${modalHeader}

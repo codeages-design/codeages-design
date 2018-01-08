@@ -4,7 +4,7 @@ class Upload {
       parent: document,
       type: 'normal',
       fileTypes: ['image/bmp', 'image/jpeg', 'image/png'],
-      fileSize: 2 * 1024 * 1024,
+      fileSize: 2,
     }, props);
 
     this.init();
@@ -47,14 +47,14 @@ class Upload {
     // 文件类型限制
     const FLIE_TYPE_LIMIT = 'FLIE_TYPE_LIMIT';
 
-    let target = event.currentTarget;
-    let file = $(target)[0].files[0];
+    let el = event.currentTarget;
+    let file = $(el)[0].files[0];
 
-    if (file.size > this.fileSize) {
+    if (file.size > this.fileSize * 1024 * 1024) {
       this.error(FILE_SIZE_LIMIT);
       return false;
     }
-    
+    console.log('file.type', file.type);
     if (!this.fileTypes.includes(file.type)) {
       this.error(FLIE_TYPE_LIMIT);
       return false;
@@ -67,12 +67,7 @@ class Upload {
     let $this = $(event.currentTarget);
     let $target = $($this.data('target'));
 
-    if ($target) {
-      $target.css('background-image', `url(${src})`);
-      this.success(event, $target);
-    } else {
-      this.success(event, src);
-    }
+    this.success(event, src, $target);
   }
 
   crop(event, src) {

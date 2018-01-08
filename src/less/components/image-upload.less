@@ -8,6 +8,20 @@
       opacity: 1;
     }
   }
+  .cd-avatar {
+    position: relative;
+    &:after {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -15px;
+      margin-left: -15px;
+      font-family: 'codeages-icon';
+      content: '\e989';
+      font-size: 30px;
+      color: @cd-dark-assist;
+    }
+  }
   .image-upload-mask {
     position: absolute;
     top: 0;

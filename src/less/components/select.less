@@ -98,7 +98,7 @@
     .cd-transition;
     > li {
       position: relative;
-      padding: 10px 16px;
+      padding: 16px;
       line-height: 1;
       color: rgba(0,0,0,.88);
       background: none;
@@ -108,14 +108,20 @@
       &.checked {
         background: @cd-bg-light;
         &:hover {
-          opacity: 1;
+          background: @cd-bg-light;
         }
       }
       &:hover {
         cursor: pointer;
         .cd-transition;
-        .cd-hover-light(.64);
+        background-color: fade(@brand-primary, 8%);
       }
+    }
+    > li:first-child {
+      border-radius: 4px 4px 0 0;
+    }
+    > li:last-child {
+      border-radius: 0 0 4px 4px;
     }
   }
 }
@@ -147,11 +153,11 @@
       }
       &:after {
         position: absolute;
-        top: 8px;
+        top: 16px;
         right: 16px;
         content: '\e983';
         font-family: 'codeages-icon';
-        font-size: 14px;
+        font-size: 12px;
         opacity: 0;
         color: @cd-dark-assist;
         .cd-transition;
@@ -159,8 +165,9 @@
       &.checked {
         &:hover {
           .cd-transition;
+          background-color: fade(@brand-danger, 8%);
           &:after {
-            color: red;
+            color: @brand-danger;
             content: '\e95f';
             .cd-transition;
           }

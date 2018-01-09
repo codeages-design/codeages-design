@@ -11,6 +11,7 @@ import tag from './lib/tag';
 import confirm from './lib/confirm';
 import message from './lib/message';
 import tooltip from './lib/tooltip';
+import popover from './lib/popover';
 import dropdown from './lib/dropdown';
 import select from './lib/select';
 import modal from './lib/modal';
@@ -30,6 +31,7 @@ export {
   confirm,
   message,
   tooltip,
+  popover,
   dropdown,
   select,
   modal,

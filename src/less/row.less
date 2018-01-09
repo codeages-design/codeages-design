@@ -1,5 +1,3 @@
-@grid-columns:  12;
-
 .cd-row {
   margin-left: -12px;
   margin-right: -12px;
@@ -13,17 +11,53 @@
   }
 }
 
-.cd-row {
-  .loop-base-columns(@grid-columns);
+.loop-base-columns(@grid-columns);
+.loop-float-columns(xs, @grid-columns);
+@media (min-width: @screen-sm-min) {
+  .loop-float-columns(sm, @grid-columns);
+}
+@media (min-width: @screen-md-min) {
+  .loop-float-columns(md, @grid-columns);
+}
+@media (min-width: @screen-lg-min) {
+  .loop-float-columns(lg, @grid-columns);
+}
 
-  .loop-float-columns(xs, @grid-columns);
-  @media (min-width: @screen-sm-min) {
-    .loop-float-columns(sm, @grid-columns);
-  }
-  @media (min-width: @screen-md-min) {
-    .loop-float-columns(md, @grid-columns);
-  }
-  @media (min-width: @screen-lg-min) {
-    .loop-float-columns(lg, @grid-columns);
-  }
+.cd-row-flex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-flow: row wrap;
+  -ms-flex-flow: row wrap;
+  flex-flow: row wrap;
+}
+
+.cd-row-flex-base(@pack, @content) {
+  -webkit-box-pack: @pack;
+  -ms-flex-pack: @pack;
+  -webkit-justify-content: @content;
+  justify-content: @content;
+}
+
+.cd-row-flex-start {
+  .cd-row-flex-base(start, flex-start);
+}
+
+.cd-row-flex-center {
+  .cd-row-flex-base(center, center);
+}
+
+.cd-row-flex-end {
+  .cd-row-flex-base(end, flex-end);
+}
+
+.cd-row-flex-space-between {
+  .cd-row-flex-base(justify, space-between);
+}
+
+.cd-row-flex-space-around {
+  .cd-row-flex-base(center, space-around);
 }

@@ -8,13 +8,33 @@
     padding-left: 12px;
     padding-right: 12px;
   }
+  .cd-xs-@{index},
+  .cd-sm-@{index},
+  .cd-md-@{index},
+  .cd-lg-@{index} {
+    position: relative;
+    min-height: 1px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
   .loop-base-columns(@index - 1);
 }
 
 .loop-float-columns(@class, @index) when (@index > 0) {
   .col-@{class}-@{index} {
     float: left;
+    width: percentage(@index / @old-grid-columns);
+  }
+  .cd-@{class}-@{index} {
+    float: left;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
     width: percentage(@index / @grid-columns);
+  }
+  .cd-@{class}-offset-@{index} {
+    margin-left: percentage(@index / @grid-columns);
   }
   .loop-float-columns(@class, @index - 1);
 }

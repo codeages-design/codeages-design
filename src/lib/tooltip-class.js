@@ -2,6 +2,9 @@ import { getPosition, getUUID } from '../js/utils';
 
 const TRANSITION_DURATION = 300;
 
+const elements = [];
+let trigger = '';
+
 class Tooltip {
   constructor(props) {
     this.options = {
@@ -19,20 +22,21 @@ class Tooltip {
 
     Object.assign(this.options, props);
 
+    trigger = this.options.trigger;
     this.timeout = null;
 
     this.init();
   }
 
   init() {
-
     if (typeof Tooltip.instance === 'object' 
-        && this.options.el === Tooltip.element) {
+        && elements.includes(this.options.el)) {
       return Tooltip.instance;
     }
 
     Tooltip.instance = this;
-    Tooltip.element = this.options.el;
+    elements.push(this.options.el);
+    
 
     this.events();
   }
@@ -45,6 +49,7 @@ class Tooltip {
   }
 
   mouseenterEvent(event) {
+    console.log('mouseenterEvent');
     if (this.isHover(event)) {
       this.show(event);
     }
@@ -80,13 +85,15 @@ class Tooltip {
 
   isHover(event) {
     let $this = $(event.currentTarget);
-    Object.assign(this.options, {
-      trigger: $this.data('trigger') ? $this.data('trigger') : this.options.trigger,
-    });
+    // Object.assign(this.options, {
+    //   trigger: $this.data('trigger') ? $this.data('trigger') : this.options.trigger,
+    // });
 
-    console.log(this.options.trigger === 'hover');
+    return ($this.data('trigger') || trigger) === 'hover';
 
-    return this.options.trigger === 'hover';
+    // console.log($this.data('trigger'), this.options.trigger);
+
+    // return $this.data('trigger') === 'hover';
   }
 
   show(event) {
@@ -100,7 +107,7 @@ class Tooltip {
       placement: $this.data('placement') ? $this.data('placement') : this.options.placement,
     });
     
-    this.$template ? this.$template.remove() : null;
+    this.$template && this.$template.remove();
 
     this.$template = this.template();
 

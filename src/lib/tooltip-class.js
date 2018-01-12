@@ -85,15 +85,7 @@ class Tooltip {
 
   isHover(event) {
     let $this = $(event.currentTarget);
-    // Object.assign(this.options, {
-    //   trigger: $this.data('trigger') ? $this.data('trigger') : this.options.trigger,
-    // });
-
     return ($this.data('trigger') || trigger) === 'hover';
-
-    // console.log($this.data('trigger'), this.options.trigger);
-
-    // return $this.data('trigger') === 'hover';
   }
 
   show(event) {

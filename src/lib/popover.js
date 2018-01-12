@@ -1,6 +1,6 @@
 import Tooltip from './tooltip-class';
 
-import { getPosition, getUUID } from '../js/utils';
+import { getUUID } from '../js/utils';
 
 class Popover extends Tooltip {
   constructor(props) {

@@ -16,6 +16,7 @@ import dropdown from './lib/dropdown';
 import select from './lib/select';
 import modal from './lib/modal';
 import rate from './lib/rate';
+import autocomplete from './lib/autocomplete';
 
 export {
   btn,
@@ -35,5 +36,6 @@ export {
   dropdown,
   select,
   modal,
-  rate
+  rate,
+  autocomplete
 };

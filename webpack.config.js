@@ -1,9 +1,11 @@
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var path = require('path');
+var webpack = require('webpack');
 
 var config = {
   entry: {
-    'codeages-design': ['./src/less/codeages-design.less', './src/codeages-design.js']
+    'codeages-design': ['./src/less/codeages-design.less', './src/codeages-design.js'],
+    'cd-main-color': ['./src/less/main-color.less']
   },
   output: {
     libraryTarget: 'umd',
@@ -38,14 +40,26 @@ var config = {
         test: /\.css$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: 'css-loader'
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+            }
+          }]
         })
       },
       {
         test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
-          use: ['css-loader', 'less-loader']
+          use: [{
+            loader: 'css-loader',
+            options: {
+              minimize: true,
+            }
+          }, {
+            loader: 'less-loader'
+          }]
         })
       },
       {
@@ -71,6 +85,17 @@ var config = {
       filename: '[name].css',
       allChunks: true
     }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'production')
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        drop_console: true,
+      },
+    })
   ]
 }
 

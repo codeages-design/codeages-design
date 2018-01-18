@@ -5,7 +5,7 @@ class Btn extends Component {
     super();
 
     this.options = {
-      text: 'loading...'
+      loadingText: 'loading...'
     };
 
     Object.assign(this.options, props);
@@ -13,15 +13,15 @@ class Btn extends Component {
     this.handlers = {};
 
     this.$el = $(this.options.el);
-    this.oldText = this.$el.html();
-    this.text = this.$el.data('loadingText') || this.options.text;
+    this.oldText = this.$el.text();
+    this.loadingText = this.$el.data('loadingText') || this.options.loadingText;
   }
 
   loading(callback) {
-    this.$el.html(this.text).prop('disabled', true);
+    this.$el.html(this.loadingText).prop('disabled', true);
 
     if (typeof callback === 'function') {
-      callback();
+      callback(this.$el);
     };
 
     return this;
@@ -31,7 +31,7 @@ class Btn extends Component {
     this.$el.html(this.oldText).prop('disabled', false);
 
     if (typeof callback === 'function') {
-      callback();
+      callback(this.$el);
     };
 
     return this;

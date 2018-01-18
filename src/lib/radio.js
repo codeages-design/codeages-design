@@ -1,12 +1,12 @@
-class Radio {
-  constructor(props, callback) {
+import Component from '../js/component';
+
+class Radio extends Component {
+  constructor(props) {
     this.options = {
       parent: document,
     };
 
     Object.assign(this.options, props);
-
-    this.callback = callback;
 
     this.init();
   }
@@ -26,14 +26,12 @@ class Radio {
     $this.parent().addClass('checked')
          .siblings().removeClass('checked');
 
-    if (typeof this.callback == 'function') {
-      this.callback(event);
-    }
+    this.emit('click', $this);
   }
 }
 
-function radio(props, callback) {
-  return new Radio(props, callback);
+function radio(props) {
+  return new Radio(props);
 }
 
 // DATA-API

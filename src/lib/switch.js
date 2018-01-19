@@ -1,12 +1,14 @@
-class Switch {
-  constructor(props, callback) {
+import Component from '../js/component';
+
+class Switch extends Component {
+  constructor(props) {
+    super();
+
     this.options = {
       parent: document,
     };
 
     Object.assign(this.options, props);
-
-    this.callback = callback;
 
     this.init();
   }
@@ -22,21 +24,22 @@ class Switch {
   clickEvent(event) {
     event.stopPropagation();
     let $this = $(event.currentTarget);
+    let value = false;
 
     if ($this.parent().hasClass('checked')) {
       $this.parent().removeClass('checked');
+      value = false;
     } else {
       $this.parent().addClass('checked');
+      value = true;
     }
 
-    if (typeof this.callback === 'function') {
-      this.callback(event);
-    }
+    this.emit('change', value);
   }
 }
 
-function onoff(props, callback) {
-  return new Switch(props, callback);
+function onoff(props) {
+  return new Switch(props);
 }
 
 // DATA-API

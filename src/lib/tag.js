@@ -30,7 +30,7 @@ class Tag extends Component {
       $parent.remove();
     }, 300);
 
-    this.emit('close', $this, $parent);
+    this.emit('close', $parent);
   }
 }
 

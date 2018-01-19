@@ -1,13 +1,20 @@
+
+import Component from '../js/component';
+import tag from './tag';
 import { getUUID } from '../js/utils';
 
-class Select {
+class Select extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       type: 'single',
       parent: document,
     };
 
     Object.assign(this.options, props);
+
+    this.isInit = true;
 
     this.selectOption = `${this.options.el} .select-options li`;
     this.selectValue = `${this.options.el} .select-value`;
@@ -50,6 +57,8 @@ class Select {
     let value = $this.text();
     this.$selectValue.text(value);
     this.$input.val(value);
+
+    this.emit('change', value);
   }
 
   singleEvent(event) {
@@ -103,9 +112,11 @@ class Select {
 
     value = value.substr(0, value.length - 1);
 
-    console.log('value', value);
-
     this.$input.val(value);
+
+    if (!this.isInit) {
+      this.emit('change', value);
+    }
   }
 
   initOption() {
@@ -120,6 +131,8 @@ class Select {
         self.addOption(index, $(this).text());
       }
     });
+
+    this.isInit = false;
   }
 
   addOption(index, value) {
@@ -133,14 +146,11 @@ class Select {
       `)
       .appendTo(this.$selectValue);
 
-    let self = this;
-    cd.tag({
-      closeEl: `[data-target="${this.options.el}${index}"] i`,
-      close(event) {
-        event.stopPropagation();
-        self.removeOption(index, value);
-      }
-    });
+    tag({
+      el: `[data-target="${this.options.el}${index}"]`,
+    }).on('close', () => {
+      this.removeOption(index, value);
+    })
 
     this.changeValue(index, value);
   }

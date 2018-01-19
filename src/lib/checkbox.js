@@ -31,7 +31,7 @@ class Checkbox extends Component {
       $this.parent().addClass('checked');
     }
     
-    this.emit('click', $this);
+    this.emit('change', $this.val());
   }
 }
 

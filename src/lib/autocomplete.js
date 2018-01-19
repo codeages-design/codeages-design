@@ -1,5 +1,9 @@
-class AutoComplete {
+import Component from '../js/component';
+
+class AutoComplete extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       parent: document,
       el: null,
@@ -30,6 +34,8 @@ class AutoComplete {
     this.render(value);
 
     this.$el.addClass('cd-in');
+
+    this.emit('change', value);
   }
 
   blurEvent(event) {

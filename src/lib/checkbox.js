@@ -1,12 +1,14 @@
-class Checkbox {
-  constructor(props, callback) {
+import Component from '../js/component';
+
+class Checkbox extends Component {
+  constructor(props) {
+    super();
+
     this.options = {
       parent: document,
     };
 
     Object.assign(this.options, props);
-
-    this.callback = callback;
 
     this.init();
   }
@@ -29,14 +31,12 @@ class Checkbox {
       $this.parent().addClass('checked');
     }
     
-    if (typeof this.callback === 'function') {
-      this.callback(event);
-    }
+    this.emit('click', $this);
   }
 }
 
-function checkbox(props, callback) {
-  return new Checkbox(props, callback);
+function checkbox(props) {
+  return new Checkbox(props);
 }
 
 // DATA-API

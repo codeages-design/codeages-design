@@ -2,6 +2,8 @@ import Component from '../js/component';
 
 class Radio extends Component {
   constructor(props) {
+    super();
+    
     this.options = {
       parent: document,
     };

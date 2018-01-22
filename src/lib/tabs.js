@@ -1,25 +1,28 @@
-class Tabs {
+import Component from '../js/component';
+
+class Tabs extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       parent: document,
       isLoading: false,
-      isInit: true,
       url: null,
     };
+
     Object.assign(this.options, props);
 
     this.init();
   }
 
   init() {
-    if (this.options.isInit) {
-      this.getData();
-    }
+    this.getData();
+    
     this.events();
   }
 
   events() {
-    $(this.options.parent).on('click.cd.tabs', this.options.el, (event) => this.clickEvent(event));
+    $(this.options.parent).on('click.cd.tabs', `${this.options.el}`, (event) => this.clickEvent(event));
   }
 
   loading() {
@@ -34,16 +37,9 @@ class Tabs {
     $.get({
       url: event ? $(event.currentTarget).data('url') : this.options.url
     }).done((res) => {
-      if (typeof this.options.success === 'function') {
-        this.options.success(res);
-      } else {
-        $(this.options.target).html(res);
-      }
+      this.emit('success', res);
     }).fail((res) => {
-      console.log('error', res);
-      if (typeof this.options.error === 'function') {
-        this.options.error(res);
-      } 
+      this.emit('error', res);
     })
   }
 

@@ -1,3 +1,4 @@
+import Component from '../js/component';
 import { getPosition, getUUID } from '../js/utils';
 
 const TRANSITION_DURATION = 300;
@@ -5,8 +6,10 @@ const TRANSITION_DURATION = 300;
 const elements = [];
 let trigger = '';
 
-class Tooltip {
+class Tooltip extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       parent: document,
       container: document.body,
@@ -36,7 +39,6 @@ class Tooltip {
 
     Tooltip.instance = this;
     elements.push(this.options.el);
-    
 
     this.events();
   }

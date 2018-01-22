@@ -1,8 +1,12 @@
+import Component from '../js/component';
+
 const TRANSITION_DURATION = 300;
 const BACKDROP_TRANSITION_DURATION = 150;
 
-class Confirm {
+class Confirm extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       title: '',
       content: '',
@@ -42,17 +46,13 @@ class Confirm {
   cancelEvent(event) {
     this.rmConfirm(event);
 
-    if (typeof this.options.cancel === 'function') {
-      this.options.cancel(event, this.$modal);
-    }
+    this.emit('cancel');
   }
 
   okEvent(event) {
     this.rmConfirm(event);
 
-    if (typeof this.options.ok === 'function') {
-      this.options.ok(event, this.$modal);
-    }
+    this.emit('ok');
   }
 
   rmConfirm() {

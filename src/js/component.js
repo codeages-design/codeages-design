@@ -13,6 +13,8 @@ class Component {
 
   on(eventName, callback) {
     this.handler[eventName] = callback;
+
+    return this;
   }
 
   emit(eventName) {

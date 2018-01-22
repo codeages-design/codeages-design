@@ -1,10 +1,13 @@
+import Component from '../js/component';
+import loading from './loading';
+
 const TRANSITION_DURATION = 300;
 const BACKDROP_TRANSITION_DURATION = 150;
 
-import loading from './loading';
-
-class Modal {
+class Modal extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       el: null,
       ajax: false,
@@ -39,33 +42,30 @@ class Modal {
       this.$modal.addClass('cd-in');
     }, TRANSITION_DURATION);
 
+    this.destroy();
     this.events();
   }
 
   events() {
-    this.$modal.on('click.cd.modal.cancel', '[data-toggle="cd-modal-cancel"]', event => this.cancelEvent(event));
     this.$modal.on('click.cd.modal.ok', '[data-toggle="cd-modal-ok"]', event => this.okEvent(event));
+    this.$modal.on('click.cd.modal.cancel', '[data-toggle="cd-modal-cancel"]', event => this.cancelEvent(event));
 
     if (this.options.maskClosable) {
-      this.$modal.on('click.cd.modal.mask', event => this.rmModal());
-    }
-  }
-
-  cancelEvent(event) {
-    this.rmModal();
-
-    if (typeof this.options.cancel === 'function') {
-      this.options.cancel(event, this.$modal, this);
+      this.$modal.on('click.cd.modal.mask', event => this.close());
     }
   }
 
   okEvent(event) {
-    if (typeof this.options.ok === 'function') {
-      this.options.ok(event, this.$modal, this);
-    }
+    this.emit('ok', this.$modal, this);
   }
 
-  rmModal() {
+  cancelEvent(event) {
+    this.close();
+
+    this.emit('cancel', this.$modal, this);
+  }
+
+  close() {
     this.$modal.removeClass('cd-in');
     
     setTimeout(() => {
@@ -75,6 +75,12 @@ class Modal {
       });
       this.rmDrop();
     }, TRANSITION_DURATION);
+  }
+
+  destroy() {
+    this.$modal.off('click.cd.modal.ok');
+    this.$modal.off('click.cd.modal.cancel');
+    this.$modal.off('click.cd.modal.mask');
   }
 
   addDrop() {

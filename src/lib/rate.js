@@ -1,9 +1,12 @@
+import Component from '../js/component';
 import { getPosition, getMousePos } from '../js/utils';
 
 const RATE_MAX = 5;
 
-class Rate {
-  constructor(props, callback) {
+class Rate extends Component {
+  constructor(props) {
+    super();
+
     this.options = {
       el: null,
       score: 0,
@@ -79,6 +82,8 @@ class Rate {
   select(event) {
     this.options.score = this.tempScore;
     this.$el.val(this.options.score);
+
+    this.emit('click', this.options.score);
   }
 
   adjustStar(score) {
@@ -92,8 +97,8 @@ class Rate {
   }
 }
 
-function rate(props, callback) {
-  return new Rate(props, callback);
+function rate(props) {
+  return new Rate(props);
 }
 
 export default rate;

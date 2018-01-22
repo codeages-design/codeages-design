@@ -9,6 +9,7 @@
   .cd-transition();
   &.cd-hide {
     opacity: 0;
+    display: block;
     .cd-transition();
   }
   &.cd-alert-warning {
@@ -35,6 +36,9 @@
     &:hover {
       .cd-hover-light;
       .cd-transition;
+    }
+    &:focus {
+      outline: none;
     }
     i {
       font-size: 14px;

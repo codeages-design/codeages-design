@@ -1,7 +1,11 @@
+import Component from '../js/component';
+
 const TRANSITION_DURATION = 300;
 
-class Message {
+class Message extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       type: '',
       message: '',
@@ -16,8 +20,9 @@ class Message {
         exit: 'cd-animated cd-fadeOutUp'
       },
       offset: 80,
-      z_index: 9999,
+      zIndex: 9999,
     };
+    
     Object.assign(this.options, props);
 
     this.$message = null;
@@ -53,7 +58,7 @@ class Message {
       top: this.options.offset + 'px',
       left: 0,
       right: 0,
-      'z-index': this.options.z_index,
+      'z-index': this.options.zIndex,
       position: 'fixed',
     });
 
@@ -69,6 +74,8 @@ class Message {
       this.$message.remove();
       this.$message = null;
     }, TRANSITION_DURATION);
+
+    this.emit('close');
   }
 }
 

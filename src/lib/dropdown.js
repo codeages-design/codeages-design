@@ -1,8 +1,12 @@
-class Dropdown {
+import Component from '../js/component';
+
+class Dropdown extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       parent: document,
-      trigger: 'hover'
+      trigger: 'click'
     };
 
     Object.assign(this.options, props);
@@ -35,10 +39,8 @@ class Dropdown {
       }
   
       $this.removeClass('cd-in');
-
-      if (typeof self.options.hide === 'function') {
-        self.options.hide();
-      }
+      
+      self.emit('hide');
     })
   } 
 
@@ -52,9 +54,7 @@ class Dropdown {
     if (!isActive) {
       $this.addClass('cd-in');
 
-      if (typeof this.options.show === 'function') {
-        this.options.show();
-      }
+      this.emit('show');
     }
   }
 
@@ -64,14 +64,10 @@ class Dropdown {
 
     if ($this.hasClass('cd-in')) {
       $this.removeClass('cd-in');
-      if (typeof this.options.hide === 'function') {
-        this.options.hide();
-      }
+      this.emit('hide');
     } else {
       $this.addClass('cd-in');
-      if (typeof this.options.show === 'function') {
-        this.options.show();
-      }
+      this.emit('show');
     }
   }
 }
@@ -82,8 +78,12 @@ function dropdown(props) {
 
 // DATA-API
 function clear(event) {
-  $('[data-toggle="cd-dropdown"][data-trigger="click"]').each(function() {
+  $('[data-toggle="cd-dropdown"]').each(function() {
     let $this = $(this);
+
+    if ($this.data('trigger') === 'hover') {
+      return;
+    }
 
     if (!$this.hasClass('cd-in')) {
       return;
@@ -98,6 +98,10 @@ function clickEvent(event) {
   let $this = $(event.currentTarget);
   let isActive = $this.hasClass('cd-in');
 
+  if ($this.data('trigger') === 'hover') {
+    return;
+  }
+
   clear(event);
 
   if (!isActive) {
@@ -109,7 +113,7 @@ function hoverEvent(event) {
   event.stopPropagation();
   let $this = $(event.currentTarget);
 
-  if ($this.data('trigger') === 'click') {
+  if ($this.data('trigger') !== 'hover') {
     return;
   }
 
@@ -118,7 +122,7 @@ function hoverEvent(event) {
 
 $(document)
   .on('click.cd.dropdown.data-api', clear)
-  .on('click.cd.dropdown.data-api', '[data-toggle="cd-dropdown"][data-trigger="click"]', clickEvent)
+  .on('click.cd.dropdown.data-api', '[data-toggle="cd-dropdown"]', clickEvent)
   .on('mouseenter.cd.dropdown.data-api', '[data-toggle="cd-dropdown"]', hoverEvent)
   .on('mouseleave.cd.dropdown.data-api', '[data-toggle="cd-dropdown"]', hoverEvent)
 

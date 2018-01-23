@@ -1,6 +1,6 @@
 {
   "name": "codeages-design",
-  "version": "0.1.0-beta4",
+  "version": "0.1.0",
   "description": "前端组件库",
   "main": "src/codeages-design.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "keywords": [
     "component"
   ],
-  "author": "Joe Zhong",
+  "author": "Joe Zhong, benz lee",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ketuzhong/codeages-design/issues"

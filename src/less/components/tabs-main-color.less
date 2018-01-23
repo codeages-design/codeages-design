@@ -1,15 +1,10 @@
 .cd-tabs {
-  .table-sort {
-    > i {
-      &.active {
-        color: @brand-primary;
-      }
-    }
-  }
   > li {
     &.active {
       > a {
-        border-color: @brand-primary;
+        &:before {
+          background: @brand-primary;
+        }
       }
     }
   }

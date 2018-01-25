@@ -83,7 +83,7 @@ class Rate extends Component {
     this.options.score = this.tempScore;
     this.$el.val(this.options.score);
 
-    this.emit('click', this.options.score);
+    this.emit('change', this.options.score);
   }
 
   adjustStar(score) {

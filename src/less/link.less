@@ -1,7 +1,6 @@
 .cd-link-base(@color) {
   color: @color;
   .cd-transition;
-  font-size: 14px;
   &:hover {
     .cd-hover-light;
     .cd-transition;
@@ -23,26 +22,8 @@
 .cd-link-primary {
   color: @brand-primary;
   .cd-transition;
-  font-size: 14px;
   &:hover {
     .cd-hover-light;
     .cd-transition;
   }
-}
-
-// @todo 废弃
-.cd-link-dark {
-  .cd-link-base(#000);
-}
-
-.cd-link-gray-light {
-  .cd-link-base(@cd-dark-assist);
-}
-
-.cd-link-gray {
-  .cd-link-base(@cd-dark-minor);
-}
-
-.cd-link-gray-dark {
-  .cd-link-base(@cd-dark-major);
 }

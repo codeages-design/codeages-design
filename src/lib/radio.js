@@ -28,7 +28,7 @@ class Radio extends Component {
     $this.parent().addClass('checked')
          .siblings().removeClass('checked');
 
-    this.emit('change', $this.val());
+    this.emit('change', event, $this.val());
   }
 }
 

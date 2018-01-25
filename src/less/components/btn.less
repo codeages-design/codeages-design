@@ -11,7 +11,6 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-appearance: button;
   font-size: 14px;
   font-weight: 500;
   padding: 9px 12px;
@@ -42,6 +41,14 @@
   }
 }
 
+button, 
+html input[type=button], 
+input[type=reset], 
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
 a.cd-btn.disabled {
   pointer-events: none;
 }
@@ -69,7 +76,7 @@ a.cd-btn.disabled {
     &:hover,
     &:focus {
       border-color: rgba(255, 255, 255, 1);
-      transform: translateY(-1px);
+      // transform: translateY(-1px);
       .cd-box-shadow-general(0 6px 6px 0 rgba(0, 0, 0, 0.3));
       .cd-transition;
     }

@@ -49,7 +49,7 @@ class Dropdown extends Component {
     let $this = $(event.currentTarget);
     let isActive = $this.hasClass('cd-in');
   
-    this.clear(event);
+    this.clear();
   
     if (!isActive) {
       $this.addClass('cd-in');
@@ -77,7 +77,7 @@ function dropdown(props) {
 }
 
 // DATA-API
-function clear(event) {
+function clear() {
   $('[data-toggle="cd-dropdown"]').each(function() {
     let $this = $(this);
 
@@ -102,7 +102,7 @@ function clickEvent(event) {
     return;
   }
 
-  clear(event);
+  clear();
 
   if (!isActive) {
     $this.toggleClass('cd-in');

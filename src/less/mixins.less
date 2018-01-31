@@ -1,4 +1,8 @@
 @import './mixins/grid.less';
+@import './mixins/color.less';
+@import './mixins/spacing.less';
+@import './mixins/size.less';
+@import './mixins/link.less';
 
 .cd-box-shadow(@level: 4px, @opacity1: 0.01, @opacity2: 0.04) {
   -webkit-box-shadow: 0 0 @level 0 rgba(0, 0, 0, @opacity1), 0 @level @level 0 rgba(0, 0, 0, @opacity2);
@@ -92,4 +96,8 @@
 
 .cd-bg-dark {
   background-color: @cd-bg-dark;
+}
+
+.cd-text-medium {
+  font-weight: 500 !important;
 }

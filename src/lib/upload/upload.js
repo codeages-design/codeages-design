@@ -1,11 +1,17 @@
-class Upload {
+import Component from '../../js/component';
+
+class Upload extends Component {
   constructor(props) {
-    Object.assign(this, {
+    super();
+
+    this.options = {
       parent: document,
-      type: 'normal',
       fileTypes: ['image/bmp', 'image/jpeg', 'image/png'],
+      isLimitFileType: false,
       fileSize: 2,
-    }, props);
+    }
+
+    Object.assign(this.options, props);
 
     this.init();
   }
@@ -15,27 +21,21 @@ class Upload {
   }
 
   events() {
-    $(this.parent).on('change.cd.local-upload', this.el, event => this.uploadEvent(event));
+    $(this.options.parent).on('change.cd.upload', this.options.el, event => this.uploadEvent(event));
   }
 
   uploadEvent(event) {
     let target = event.currentTarget;
-    let self = this;
-
     let fr = new FileReader();
 
-    if (!self.catch(event)) {
+    if (!this.catch(event)) {
       return;
     };
 
-    fr.onload = function(e) {
+    fr.onload = (e) => {
       let src = e.target.result;
 
-      try {
-        self[self.type](event, src);
-      } catch(e) {
-        throw new Error(`${self.type} type does not exist`);
-      }
+      this.emit('success', event, $(target)[0].files[0], src);
     }
 
     fr.readAsDataURL($(target)[0].files[0]);
@@ -50,85 +50,17 @@ class Upload {
     let el = event.currentTarget;
     let file = $(el)[0].files[0];
 
-    if (file.size > this.fileSize * 1024 * 1024) {
-      this.error(FILE_SIZE_LIMIT);
+    if (file.size > this.options.fileSize * 1024 * 1024) {
+      this.emit('error', FILE_SIZE_LIMIT);
       return false;
     }
-    console.log('file.type', file.type);
-    if (!this.fileTypes.includes(file.type)) {
-      this.error(FLIE_TYPE_LIMIT);
+
+    if (this.options.isLimitFileType && !this.options.fileTypes.includes(file.type)) {
+      this.emit('error', FLIE_TYPE_LIMIT);
       return false;
     }
 
     return true;
-  }
-
-  normal(event, src) {
-    let $this = $(event.currentTarget);
-    let $target = $($this.data('target'));
-
-    this.success(event, src, $target);
-  }
-
-  crop(event, src) {
-    let image = new Image();
-    let $this = $(event.currentTarget);
-    let self = this;
-
-    image.onload = function() {
-      let width = image.width;
-      let height = image.height;
-      let cropWidth = $this.data('crop-width');
-      let cropHeight = $this.data('crop-height');
-
-      let scale = self.imageScale({
-        naturalWidth: width,
-        naturalHeight: height,
-        cropWidth,
-        cropHeight
-      });
-
-      let $image = $(image);
-      
-      $image.attr({
-        'class': 'hidden',
-        'data-natural-width': width,
-        'data-natural-height': height,
-        'width': scale.width,
-        'height': scale.height,
-      });
-
-      self.success(event, $image);
-    };
-
-    image.src = src;
-  }
-
-  imageScale({ naturalWidth, naturalHeight, cropWidth, cropHeight }) {
-    let width = cropWidth;
-    let height = cropHeight;
-  
-    let naturalScale = naturalWidth / naturalHeight;
-    let cropScale = cropWidth / cropHeight;
-  
-    if (naturalScale > cropScale) {
-      width = naturalScale * cropWidth;
-    } else {
-      height =  cropHeight / naturalScale;
-    }
-  
-    return {
-      width,
-      height
-    }
-  }
-
-  success() {
-    console.log('upload.success');
-  }
-
-  error(code) {
-    console.log('upload.error', code);
   }
 }
 

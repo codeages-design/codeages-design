@@ -1,13 +1,17 @@
-class Table {
+import Component from '../../js/component';
+
+class Table extends Component {
   constructor(props) {
+    super();
+
     this.options = {
       filterEl: '[data-toggle="cd-table-filter"]',
       sortEl: '[data-toggle="cd-table-sort"]',
       parent: document,
-      target: null,
-      url: null,
+      el: null,
       data: {},
       isLoading: false,
+      isInit: false
     };
 
     Object.assign(this.options, props);
@@ -16,41 +20,27 @@ class Table {
   }
 
   init() {
-    this.getData();
+    if (this.options.isInit) {
+      this.getData();
+    }
     this.events();
   }
 
   events() {
-    $(this.options.parent).on('click.cd.table.filter', this.filterEl, (event) => this.filterEvent(event));
-    $(this.options.parent).on('click.cd.table.sort', this.sortEl, (event) => this.sortEvent(event));
+    $(this.options.parent).on('click.cd.table.filter', this.options.filterEl, (event) => this.filterEvent(event));
+    $(this.options.parent).on('click.cd.table.sort', this.options.sortEl, (event) => this.sortEvent(event));
   }
 
   loading() {
     if (this.options.isLoading) {
-      $(this.options.target).html(cd.loading());
+      $(this.options.el).html(cd.loading());
     }
   }
 
   getData() {
     this.loading();
 
-    $.get({
-      url: this.options.url,
-      data: this.options.data,
-    }).done((res) => {
-      console.log(res);
-      if (typeof this.options.cuccess === 'function') {
-        this.options.cuccess(res);
-      } else {
-        $(this.options.target).html(res);
-      }
-      
-    }).fail((res) => {
-      console.log('fail', res);
-      if (typeof this.options.error === 'function') {
-        this.options.error(res);
-      }
-    });
+    this.emit('getData', this.options.data);
   }
 
   filterEvent(event) {
@@ -63,9 +53,7 @@ class Table {
     let filterKey = $this.data('filter-key');
     let filterValue = $this.data('filter-value');
 
-    this.options.data.filter = {};
-    this.options.data.filter.name = filterKey;
-    this.options.data.filter.value = filterValue;
+    this.options.data[filterKey] = filterValue;
 
     this.getData();
   }
@@ -81,9 +69,7 @@ class Table {
       sortValue = $sortIcon.siblings().data('sort-value');
     }
 
-    this.options.data.sort = {};
-    this.options.data.sort.name = sortKey;
-    this.options.data.sort.value = sortValue;
+    this.options.data[sortKey] = sortValue;
     
     this.getData();
   }

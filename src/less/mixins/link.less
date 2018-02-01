@@ -1,6 +1,7 @@
 .cd-link-base(@color) {
   color: @color;
   .cd-transition;
+  &:focus,
   &:hover {
     color: @color;
     .cd-hover-light;
@@ -23,6 +24,7 @@
 .cd-link-primary {
   color: @brand-primary;
   .cd-transition;
+  &:focus,
   &:hover {
     color: @brand-primary;
     .cd-hover-light;

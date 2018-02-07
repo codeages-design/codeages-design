@@ -1,6 +1,6 @@
 {
   "name": "codeages-design",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "前端组件库",
   "main": "src/codeages-design.js",
   "scripts": {

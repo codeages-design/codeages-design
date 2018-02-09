@@ -51,7 +51,6 @@ class Tooltip extends Component {
   }
 
   mouseenterEvent(event) {
-    console.log('mouseenterEvent');
     if (this.isHover(event)) {
       this.show(event);
     }
@@ -64,6 +63,7 @@ class Tooltip extends Component {
   }
 
   clickEvent(event) {
+    event.stopPropagation();
     if (this.isHover(event)) {
       return;
     }
@@ -76,10 +76,6 @@ class Tooltip extends Component {
   }
 
   documentEvent(event) {
-    if (this.isHover(event)) {
-      return;
-    }
-
     if (this.$template) {
       this.close(event);
     }

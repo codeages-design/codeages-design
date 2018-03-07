@@ -11,7 +11,7 @@
   }
   &:active {
     .cd-transition;
-    background: rgba(red(@color), green(@color), blue(@color), 0.08);
+    background: tint(@color, 88%);
   }
 }
 
@@ -21,11 +21,11 @@
   &:hover,
   &:focus {
     .cd-transition;
-    background: rgba(red(@color), green(@color), blue(@color), 0.08);
+    background: tint(@color, 88%);
   }
   &:active {
     .cd-transition;
-    background: rgba(red(@color), green(@color), blue(@color), 0.16);
+    background: tint(@color, 80%);
   }
   &[disabled] {
     background: none;

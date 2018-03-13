@@ -11,6 +11,7 @@ yarn add codeages-design
 ## Quick Start
 
 ```
+import 'jquery';
 import cd from 'codeages-design';
 import 'codeages-design/src/less/codeages-design.less';
 

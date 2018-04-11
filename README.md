@@ -2,13 +2,13 @@
 
 a Web Design Language
 
-## install
+### install
 
 ```
 yarn add codeages-design
 ```
 
-## Quick Start
+### Quick Start
 
 ```
 import 'jquery';
@@ -21,6 +21,6 @@ window.cd = cd;
 cd.loading();
 ```
 
-## Browser Support
+### Browser Support
 
 Modern browsers and Internet Explorer 9+

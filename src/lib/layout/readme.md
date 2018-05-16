@@ -11,49 +11,46 @@
   ```
   ### js
   ```
-     import layout from './lib/layout/index.js' ;
-    let data = 
-    [
+    import layout from './lib/layout/index.js' ;
+    let data =[
+    {
+      name:'first-list',
+      nodes:
+      [
         {
-          name:'first-list',
+          name:'second-list',
           nodes:
           [
-              {
-                name:'second-list',
-                nodes:
-                [
-                    {
-                        name:'third-list',
-                        nodes:[]
-                    }
-                ]
-              },
-              {
-                name:'second-list',
-                nodes:
-                [
-                    {
-                        name:'third-list',
-                        nodes:[
-                            {
-                                name:'four-list',
-                            },
-                            {
-                                name:'four-list',
-                                nodes:[]
-                            }
-                        ]
-                    }
-                ]
-              },
-              {
-                name:'second-list',
+            {
+                name:'third-list',
                 nodes:[]
-               }
-           ]
-        }        
+            }
+          ]
+        },
+          {
+            name:'second-list',
+            nodes:
+            [
+              {
+                name:'third-list',
+                nodes:[
+                  {
+                    name:'four-list',
+                  },
+                  {
+                    name:'four-list',
+                    nodes:[]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            name:'second-list',
+            nodes:[]
+          }
+        ]
+      }        
     ]
-
-
-     layout({data});
+  layout({data});
 ```

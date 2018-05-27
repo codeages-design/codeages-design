@@ -6,6 +6,8 @@ class Layout extends Component {
 
     this.options = {
       el:'.cd-sidebar-container',
+      ctTab: '.cd-tabs',
+      navbar_ul:'.ct-layout-navbar_ul .active',
       data: [],
       output:''
     };
@@ -18,39 +20,54 @@ class Layout extends Component {
   init() {
     this.setHeight();
     this.addArrowIcon();
+    this.initActive();
     this.events();
   }
   events() {
-    $(this.options.el).on('click',(event)=>{this.clickEvent(event)})
+    $(this.options.el).on('click','.cd-group-item_link',(event)=>{this.clickEvent(event)})
+    $(this.options.ctTab).on('click',(event)=>{this.ctTab(event)})
   }
   setHeight() {
-    $('html').css({height:"100%",overflowX: "hidden"})
-    $('body').css({height:"100%",overflowX: "hidden",margin:0})
+    $('html').css({height:"100%"})
+    $('body').css({height:"100%"})
   }
   addArrowIcon(){
       this.buildTree()
-      $(this.options.el).find('p').each((index,item)=>{
+      $(this.options.el).find('a').each((index,item)=>{
+        let left = $(item).data('grade') * 16 + 40
+        $(item).css({paddingLeft:`${left}px`})
         if($(item).next('ul').length){
            $(item).append(`<span class="cd-icon cd-icon-arrow-down"></span>`);
         }
-      })
+      });
+  }
+  initActive(){
+    let $link= $('.cd-group-item_outer').eq(0).find('.cd-group-item_link');
+    let href = $(this.options.navbar_ul).find('a').data('href');
+    $link.each((index, item)=>{
+      if($(item).data('href') === href){
+         $(item).addClass('active').parents('ul').show()
+      }
+    })
   }
   buildTree(){
-    let data = this.options.data;
+    let data = this.options.data.data;
+    let title = this.options.data.title;
     let html = '';
     for(let item of data){
         this.options.output = ''
-        html += `<li class="cd-group-item"><p>${item.name}</p>`;
+        html += `<li class="cd-group-item cd-group-item_outer"><a id=${item.id}  class='cd-group-item_link' title=${item.name} data-grade=${item.grade} href=${item.link ? item.link : 'javascript:;'}  data-href=${item.link} ><span class='item-txt'>${item.name}</span></a>`;
         html +=  this.creatElement(item)
         html += `</li>`
     }
+    $('.sidebar-title h5').html(title)
     $(this.options.el).append(html)
   }
   creatElement(item){
     if(item.nodes && item.nodes.length){
         this.options.output += `<ul>`  
         for(let list of item.nodes){
-            this.options.output += `<li><p>${list.name}</p>`;
+            this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link' title=${list.name}  data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
             this.creatElement(list)
         }  
         this.options.output += `</ul>`
@@ -58,21 +75,28 @@ class Layout extends Component {
      return this.options.output
   }
   clickEvent(event) {
-    if(event.target.nodeName.toLocaleLowerCase() === 'p' ){
-        let hide = $(event.target).next('ul').is(":hidden");
-        let $parentSiblings = $(event.target).parent().siblings();
-        if(hide){
-            $(event.target).children('.cd-icon').css({transform:'rotate(180deg)'});
-        }else {
-            $(event.target).children('.cd-icon').css({transform:'rotate(0deg)'});
-        }
-        $parentSiblings.find('ul').stop().slideUp();
-        $parentSiblings.find('.cd-icon').css({transform:'rotate(0deg)'});
-        //  列表选中高亮
-        //  $parentSiblings.find('p').removeClass('theme');
-        //  $(event.target).removeClass('theme').addClass('theme');
-        $(event.target).next('ul').stop().slideToggle();
-    } 
+    let $that = $(event.currentTarget);
+    let hide = $that.next('ul').is(":hidden");
+    let $parentSiblings = $that.parent().siblings();
+    if(hide){
+      $that.children('.cd-icon').css({transform:'rotate(180deg)'});
+    }else {
+      $that.children('.cd-icon').css({transform:'rotate(0deg)'});
+    }
+    $parentSiblings.find('ul').stop().slideUp();
+    $parentSiblings.find('.cd-icon').css({transform:'rotate(0deg)'});
+     if(!$that.next('ul').length){
+      $('.cd-group-item_link').removeClass('active');
+      $that.addClass('active');
+     }
+     $that.next('ul').stop().slideToggle();
+  }
+  ctTab(event){
+    if(event.target.nodeName.toLocaleLowerCase() === 'a' ){
+      let $self = $(event.target).parent();
+      $self.siblings().removeClass('active');
+      $self.addClass('active')
+    }
   }
 }
 

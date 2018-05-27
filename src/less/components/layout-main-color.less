@@ -1,0 +1,41 @@
+.ct-layout-container{
+  .cd-fixed-top{
+    .ct-top-logo{
+      color: @brand-primary;
+      a{
+        color: @brand-primary;
+      }
+    }
+  }
+  .ct-layout-navbar{
+    .ct-layout-navbar_ul{
+      li{
+        &.active{
+          a{
+            color:@brand-primary;
+          }
+        }
+      }
+    }
+  }
+  .ct-layout-person{
+    .ct-layout-home{
+      background: @brand-primary;
+    }
+  }
+  .cd-layout-main{
+    .cd-lauout-sidebar{
+      ul{
+        li>a{
+          &:hover{
+            color: @brand-primary;
+          }
+          &.active{
+            background: tint(@brand-primary,88%);
+            color: @brand-primary;
+          }
+        }
+      }
+    }
+  }
+}

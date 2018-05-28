@@ -6,23 +6,24 @@
         color: @brand-primary;
       }
     }
-  }
-  .ct-layout-navbar{
-    .ct-layout-navbar_ul{
-      li{
-        &.active{
-          a{
-            color:@brand-primary;
+    .ct-layout-navbar{
+      .ct-layout-navbar_ul{
+        li{
+          &.active{
+            a{
+              color:@brand-primary;
+            }
           }
         }
       }
+    }  
+    .ct-layout-person{
+      .ct-layout-home{
+        background: @brand-primary;
+      }
     }
   }
-  .ct-layout-person{
-    .ct-layout-home{
-      background: @brand-primary;
-    }
-  }
+ 
   .cd-layout-main{
     .cd-lauout-sidebar{
       ul{
@@ -31,7 +32,7 @@
             color: @brand-primary;
           }
           &.active{
-            background: tint(@brand-primary,88%);
+            background: rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary), 0.08);
             color: @brand-primary;
           }
         }

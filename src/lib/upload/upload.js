@@ -50,6 +50,10 @@ class Upload extends Component {
     let el = event.currentTarget;
     let file = $(el)[0].files[0];
 
+    if (!file) {
+      return;
+    }
+
     if (file.size > this.options.fileSize * 1024 * 1024) {
       this.emit('error', FILE_SIZE_LIMIT);
       return false;

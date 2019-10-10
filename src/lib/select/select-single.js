@@ -5,7 +5,7 @@ class SelectSingle extends Component {
     super();
 
     this.options = {
-      parent: document,
+      parent: props.parent || document,
     };
 
     Object.assign(this.options, props);
@@ -23,8 +23,8 @@ class SelectSingle extends Component {
 
   events() {
     $(this.options.parent).on('click.cd.select.clear', (event) => this.clear(event));
-    $(this.options.parent).on('click.cd.celect.fill', this.selectOption, (event) => this.fillEvent(event));
-    $(this.options.parent).on('click.cd.celect', this.selectValue, (event) => this.clickEvent(event));
+    $(this.options.parent).on('click.cd.select.fill', this.selectOption, (event) => this.fillEvent(event));
+    $(this.options.parent).on('click.cd.select', this.selectValue, (event) => this.clickEvent(event));
   }
 
   clear(event) {

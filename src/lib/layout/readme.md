@@ -40,7 +40,7 @@
           </div>
       </div>
       <div class="cd-layout-main">
-          <div class="cd-lauout-sidebar">
+          <div class="cd-layout-sidebar">
             <div class="sidebar-title">
               <h5>标题</h5>
             </div>

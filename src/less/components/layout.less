@@ -1,8 +1,8 @@
-.ct-layout-container{
+.ct-layout-container {
   height: 100%;
   background: @cd-bg;
   font-size: 14px;
-  .cd-fixed-top{
+  .cd-fixed-top {
     position: fixed;
     right: 0;
     left: 0;
@@ -10,31 +10,31 @@
     height: 64px;
     background: #fff;
     box-shadow: 0 2px 8px 0 rgba(13,32,49,0.10);
-    .ct-top-logo{
+    .ct-top-logo {
       float: left;
       padding: 20px 0 20px 40px;
       font-size: 20px;
       color: @brand-primary;
       line-height: 24px;
-      a{
+      a {
         color: @brand-primary;
         font-weight: 500;
       }
     }
-    .ct-layout-navbar{
+    .ct-layout-navbar {
       position: absolute;
       left: 50%;
       transform: translateX(-50%);
-      .ct-layout-navbar_ul{
+      .ct-layout-navbar_ul {
         &.cd-tabs{
           margin-bottom: 0;
         }
-        li{
+        li {
           float: left;
           font-size: 14px;
           color: #616161;
           line-height: 20px;
-          a{
+          a {
             position: relative;
             display: block;
             width: 100%;
@@ -42,10 +42,10 @@
             padding: 22px 8px;
             cursor: pointer;
           }
-          &.active{
-            a{
+          &.active {
+            a {
               color:@brand-primary;
-              &::before{
+              &::before {
                 height: 4px;
               }
             }
@@ -53,29 +53,29 @@
         }
       }
     }
-    .ct-layout-person{
+    .ct-layout-person {
       float: right;
-      li{
+      li {
         float: left;
-        &.ct-layout-person_center{
+        &.ct-layout-person_center {
           margin-right: 30px;
         }
-        a{
+        a {
           height: 64px;
           display: block;
           width: 100%;
           font-size: 0;
           position: relative;
-          .ct-center_action{
+          .ct-center_action {
             display: table-cell;
             vertical-align: middle;
           }
-          .avatar-wrapper{
-            img{
+          .avatar-wrapper {
+            img {
               vertical-align: middle;
-           }
+            }
           }
-          .ct-layout-admin_name{
+          .ct-layout-admin_name {
             font-size: 14px;
             color: #606266;
             line-height: 20px;
@@ -83,18 +83,18 @@
           }
         }
       }
-      .ct-layout-home{
+      .ct-layout-home {
         position: relative;
         width: 68px;
         height: 64px;
         background: @brand-primary;
         text-align: center;
         line-height: 64px;
-        a{
+        a {
           display: block;
           width: 100%;
           height: 100%;
-          .cd-icon{
+          .cd-icon {
             font-size: 20px;
             position: absolute;
             top: 50%;
@@ -106,21 +106,21 @@
       }
     }
   }
-  .cd-layout-main{
+  .cd-layout-main {
     padding-top: 64px;
     height: 100%;
-    .cd-lauout-sidebar{
+    .cd-layout-sidebar {
       position: fixed;
       top: 64px;
       height: 100%;
       background: #fff;
       width: 240px;
-      .sidebar-title{
+      .sidebar-title {
         padding: 24px 0;
         margin: 0 24px;
         font-size: 20px;
         border-bottom: 1px solid #e1e1e1;
-        h5{
+        h5 {
           font-size: 16px;
           color: #303133;
           line-height: 24px;
@@ -128,9 +128,9 @@
           padding-left: 16px;
         }
       }
-      ul{
+      ul {
         display: none;
-        li>a{
+        li > a {
           display: block;
           padding: 16px 0;
           cursor: pointer;
@@ -141,41 +141,41 @@
           overflow: hidden;
           text-overflow:ellipsis;
           white-space: nowrap;
-          &:hover{
+          &:hover {
            color: @brand-primary;
           }
-          &.active{
+          &.active {
             background: rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary), 0.08);
             position: relative;
             color: @brand-primary;
           }
-          .cd-icon{
+          .cd-icon {
             float: right;
             transition:transform .5s
           }
         }
-        &.cd-sidebar-container{
+        &.cd-sidebar-container {
           display: block;
           font-size: 14px;
         }
       }
-      .cd-group-item_outer > a{
+      .cd-group-item_outer > a {
         color: #606266;
       }
     }
-    .cd-layout-aside{
+    .cd-layout-aside {
         margin-left: 240px;
         // min-width: 980px;
         height: 100%;
-        .cd-layout-aside_bread{
+        .cd-layout-aside_bread {
           padding: 11px 24px 1px;
-          .cd-breadcrumb{
+          .cd-breadcrumb {
             margin-bottom: 10px;
             line-height: 20px;
             font-size: 14px;
           }
         }
-        .cd-layout-adside_content{
+        .cd-layout-adside_content {
           margin: 0 24px;
           background: #fff;
           height: 660px;;

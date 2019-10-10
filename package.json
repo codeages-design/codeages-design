@@ -23,15 +23,19 @@
   "homepage": "https://github.com/codeages-design/codeages-design#readme",
   "babel": {
     "presets": [
-      ["env", {
-        "modules": false
-      }],
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ],
       "stage-0"
     ],
     "plugins": [],
     "compact": false
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "jquery": "^3.2.1"
   },
   "devDependencies": {

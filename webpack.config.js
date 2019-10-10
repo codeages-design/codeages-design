@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 var config = {
   entry: {
-    'codeages-design': ['./src/less/codeages-design.less', './src/codeages-design.js'],
+    'codeages-design': ['babel-polyfill', './src/less/codeages-design.less', './src/codeages-design.js'],
     'cd-main-color': ['./src/less/main-color.less']
   },
   output: {

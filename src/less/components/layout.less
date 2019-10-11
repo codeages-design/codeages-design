@@ -1,0 +1,185 @@
+.ct-layout-container {
+  height: 100%;
+  background: @cd-bg;
+  font-size: 14px;
+  .cd-fixed-top {
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+    height: 64px;
+    background: #fff;
+    box-shadow: 0 2px 8px 0 rgba(13,32,49,0.10);
+    .ct-top-logo {
+      float: left;
+      padding: 20px 0 20px 40px;
+      font-size: 20px;
+      color: @brand-primary;
+      line-height: 24px;
+      a {
+        color: @brand-primary;
+        font-weight: 500;
+      }
+    }
+    .ct-layout-navbar {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      .ct-layout-navbar_ul {
+        &.cd-tabs{
+          margin-bottom: 0;
+        }
+        li {
+          float: left;
+          font-size: 14px;
+          color: #616161;
+          line-height: 20px;
+          a {
+            position: relative;
+            display: block;
+            width: 100%;
+            height: 100%;
+            padding: 22px 8px;
+            cursor: pointer;
+          }
+          &.active {
+            a {
+              color:@brand-primary;
+              &::before {
+                height: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .ct-layout-person {
+      float: right;
+      li {
+        float: left;
+        &.ct-layout-person_center {
+          margin-right: 30px;
+        }
+        a {
+          height: 64px;
+          display: block;
+          width: 100%;
+          font-size: 0;
+          position: relative;
+          .ct-center_action {
+            display: table-cell;
+            vertical-align: middle;
+          }
+          .avatar-wrapper {
+            img {
+              vertical-align: middle;
+            }
+          }
+          .ct-layout-admin_name {
+            font-size: 14px;
+            color: #606266;
+            line-height: 20px;
+            padding: 22px 10px 22px 10px;
+          }
+        }
+      }
+      .ct-layout-home {
+        position: relative;
+        width: 68px;
+        height: 64px;
+        background: @brand-primary;
+        text-align: center;
+        line-height: 64px;
+        a {
+          display: block;
+          width: 100%;
+          height: 100%;
+          .cd-icon {
+            font-size: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+  .cd-layout-main {
+    padding-top: 64px;
+    height: 100%;
+    .cd-layout-sidebar {
+      position: fixed;
+      top: 64px;
+      height: 100%;
+      background: #fff;
+      width: 240px;
+      .sidebar-title {
+        padding: 24px 0;
+        margin: 0 24px;
+        font-size: 20px;
+        border-bottom: 1px solid #e1e1e1;
+        h5 {
+          font-size: 16px;
+          color: #303133;
+          line-height: 24px;
+          font-weight: 500;
+          padding-left: 16px;
+        }
+      }
+      ul {
+        display: none;
+        li > a {
+          display: block;
+          padding: 16px 0;
+          cursor: pointer;
+          line-height: 20px;
+          color: #909399;
+          padding-right: 23px;
+          font-size: 14px;
+          overflow: hidden;
+          text-overflow:ellipsis;
+          white-space: nowrap;
+          &:hover {
+           color: @brand-primary;
+          }
+          &.active {
+            background: rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary), 0.08);
+            position: relative;
+            color: @brand-primary;
+          }
+          .cd-icon {
+            float: right;
+            transition:transform .5s
+          }
+        }
+        &.cd-sidebar-container {
+          display: block;
+          font-size: 14px;
+        }
+      }
+      .cd-group-item_outer > a {
+        color: #606266;
+      }
+    }
+    .cd-layout-aside {
+        margin-left: 240px;
+        // min-width: 980px;
+        height: 100%;
+        .cd-layout-aside_bread {
+          padding: 11px 24px 1px;
+          .cd-breadcrumb {
+            margin-bottom: 10px;
+            line-height: 20px;
+            font-size: 14px;
+          }
+        }
+        .cd-layout-adside_content {
+          margin: 0 24px;
+          background: #fff;
+          height: 660px;;
+        }
+    }
+  }
+}

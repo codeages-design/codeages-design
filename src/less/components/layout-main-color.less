@@ -1,0 +1,42 @@
+.ct-layout-container {
+  .cd-fixed-top {
+    .ct-top-logo {
+      color: @brand-primary;
+      a {
+        color: @brand-primary;
+      }
+    }
+    .ct-layout-navbar {
+      .ct-layout-navbar_ul {
+        li {
+          &.active {
+            a {
+              color:@brand-primary;
+            }
+          }
+        }
+      }
+    }  
+    .ct-layout-person {
+      .ct-layout-home {
+        background: @brand-primary;
+      }
+    }
+  }
+ 
+  .cd-layout-main {
+    .cd-layout-sidebar {
+      ul {
+        li >a {
+          &:hover {
+            color: @brand-primary;
+          }
+          &.active {
+            background: rgba(red(@brand-primary), green(@brand-primary), blue(@brand-primary), 0.08);
+            color: @brand-primary;
+          }
+        }
+      }
+    }
+  }
+}

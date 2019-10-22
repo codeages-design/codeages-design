@@ -1,6 +1,6 @@
 {
   "name": "codeages-design",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "a Web Design Language",
   "main": "src/codeages-design.js",
   "scripts": {
@@ -35,7 +35,6 @@
     "compact": false
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0",
     "jquery": "^3.2.1"
   },
   "devDependencies": {

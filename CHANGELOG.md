@@ -1,3 +1,7 @@
+# 0.1.10 (2019-10-22)
+
+* 恢复 解决regeneratorRuntime is not defined引起的bug
+
 # 0.1.9 (2019-10-10)
 
 * 新增后台 layout 组件

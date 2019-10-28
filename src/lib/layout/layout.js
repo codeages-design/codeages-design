@@ -76,10 +76,9 @@ class Layout extends Component {
     const data = this.options.data.data;
     const title = this.options.data.title;
     let html = '';
-    const targetVal = this.options.data.linkType ? '_blank': '_self';
     for (let item of data) {
       this.options.output = ''
-      html += `<li class="cd-group-item cd-group-item_outer"><a id=${item.id}  class='cd-group-item_link' target='${targetVal}' title=${item.name} data-grade=${item.grade} href=${item.link ? item.link : 'javascript:;'}  data-href=${item.link} ><span class='item-txt'>${item.name}</span></a>`;
+      html += `<li class="cd-group-item cd-group-item_outer"><a id=${item.id}  class='cd-group-item_link' target='${item.linkType? '_blank': '_self'}' title=${item.name} data-grade=${item.grade} href=${item.link ? item.link : 'javascript:;'}  data-href=${item.link} ><span class='item-txt'>${item.name}</span></a>`;
       html +=  this.creatElement(item)
       html += `</li>`
     }
@@ -91,8 +90,7 @@ class Layout extends Component {
     if (item.nodes && item.nodes.length) {
       this.options.output += `<ul>`
       for (let list of item.nodes) {
-        const targetVal = item.nodes.linkType ? '_blank': '_self';
-        this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link' target='${targetVal}' title=${list.name}  data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
+        this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link' target='${list.linkType ? '_blank': '_self'}' title=${list.name}  data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
         this.creatElement(list)
       }
       this.options.output += `</ul>`

@@ -1,3 +1,7 @@
+# 0.1.11 (2019-10-29)
+
+* layout组件支持新开页面和active配置
+
 # 0.1.10 (2019-10-22)
 
 * 恢复 解决regeneratorRuntime is not defined引起的bug

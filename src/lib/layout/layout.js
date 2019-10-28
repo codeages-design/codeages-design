@@ -91,7 +91,7 @@ class Layout extends Component {
     if (item.nodes && item.nodes.length) {
       this.options.output += `<ul>`
       for (let list of item.nodes) {
-        this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link' title=${list.name}  data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
+        this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link' target='${targetVal}' title=${list.name}  data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
         this.creatElement(list)
       }
       this.options.output += `</ul>`

@@ -39,7 +39,7 @@ class Layout extends Component {
         let left = $(item).data('grade') * 16 + 40
         $(item).css({paddingLeft:`${left}px`})
         if($(item).next('ul').length){
-           $(item).append(`<span class="cd-icon cd-icon-arrow-down"></span>`);
+           $(item).append(`<span class="cd-icon cd-icon-arrow-up"></span>`);
         }
       });
   }
@@ -85,8 +85,8 @@ class Layout extends Component {
     }else {
       $that.children('.cd-icon').css({transform:'rotate(0deg)'});
     }
-    $parentSiblings.find('ul').stop().slideUp();
-    $parentSiblings.find('.cd-icon').css({transform:'rotate(0deg)'});
+    // $parentSiblings.find('ul').stop().slideUp();
+    // $parentSiblings.find('.cd-icon').css({transform:'rotate(0deg)'});
      if(!$that.next('ul').length){
       $('.cd-group-item_link').removeClass('active');
       $that.addClass('active');

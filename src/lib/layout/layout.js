@@ -80,10 +80,10 @@ class Layout extends Component {
     let $that = $(event.currentTarget);
     let hide = $that.next('ul').is(":hidden");
     let $parentSiblings = $that.parent().siblings();
-    if(hide){
-      $that.children('.cd-icon').css({transform:'rotate(180deg)'});
-    }else {
+    if (hide) {
       $that.children('.cd-icon').css({transform:'rotate(0deg)'});
+    } else {
+      $that.children('.cd-icon').css({transform:'rotate(180deg)'});
     }
     // $parentSiblings.find('ul').stop().slideUp();
     // $parentSiblings.find('.cd-icon').css({transform:'rotate(0deg)'});

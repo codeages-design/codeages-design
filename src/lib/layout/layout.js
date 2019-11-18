@@ -58,7 +58,7 @@ class Layout extends Component {
     let html = '';
     for(let item of data){
         this.options.output = ''
-        html += `<li class="cd-group-item cd-group-item_outer"><a id=${item.id}  class='cd-group-item_link ${item.code == this.options.code ? 'active': ''}' title=${item.name} target='${item.linkType ? '_blank': '_self'}' data-grade=${item.grade} href=${item.link ? item.link : 'javascript:;'}  data-href=${item.link} ><span class='item-txt'>${item.name}</span></a>`;
+        html += `<li class="cd-group-item cd-group-item_outer"><a id=${item.id}  class='cd-group-item_link ${item.class} ${item.code == this.options.code ? 'active': ''}' title=${item.name} target='${item.linkType ? '_blank': '_self'}' data-grade=${item.grade} href=${item.link ? item.link : 'javascript:;'}  data-href=${item.link} ><span class='item-txt'>${item.name}</span></a>`;
         html +=  this.creatElement(item)
         html += `</li>`
     }
@@ -69,7 +69,7 @@ class Layout extends Component {
     if(item.nodes && item.nodes.length){
         this.options.output += `<ul>`  
         for(let list of item.nodes){
-            this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link ${list.code == this.options.code ? 'active': ''}' title=${list.name} target='${list.linkType ? '_blank': '_self'}' data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
+            this.options.output += `<li class='cd-group-item'><a id=${list.id} class='cd-group-item_link ${item.class} ${list.code == this.options.code ? 'active': ''}' title=${list.name} target='${list.linkType ? '_blank': '_self'}' data-grade=${list.grade} href=${list.link ? list.link : 'javascript:;'} data-href=${list.link}><span class='item-txt'>${list.name}</span></a>`;
             this.creatElement(list)
         }  
         this.options.output += `</ul>`

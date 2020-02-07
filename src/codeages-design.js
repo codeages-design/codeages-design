@@ -19,6 +19,7 @@ import modal from './lib/modal';
 import rate from './lib/rate';
 import autocomplete from './lib/autocomplete';
 import crop from './lib/crop';
+import notification from './lib/notification';
 
 export {
   btn,
@@ -41,5 +42,6 @@ export {
   modal,
   rate,
   autocomplete,
-  crop
+  crop,
+  notification
 };

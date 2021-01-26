@@ -21,7 +21,7 @@ import autocomplete from './lib/autocomplete';
 import crop from './lib/crop';
 import notification from './lib/notification';
 
-export {
+export default {
   btn,
   radio,
   checkbox,
